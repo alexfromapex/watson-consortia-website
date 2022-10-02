@@ -3,66 +3,81 @@
 
 <svg
    width="768"
-   height="400"
-   viewBox="0 0 203.2 105.83334"
+   height="300"
+   viewBox="0 0 203.2 79.375005"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
-   sodipodi:docname="watson-consortia-logo.svg"
-   inkscape:export-filename="/Users/alex/Pictures/logo/bitmap.png"
-   inkscape:export-xdpi="21.89238"
-   inkscape:export-ydpi="21.89238"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.64052329"
-     inkscape:cx="422.31095"
-     inkscape:cy="492.56601"
-     inkscape:window-width="1312"
-     inkscape:window-height="945"
-     inkscape:window-x="33"
-     inkscape:window-y="25"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1"
-     units="px"
-     width="512px" />
   <defs
      id="defs2" />
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-size:19.05px;line-height:1.25;font-family:'Raconteur NF';-inkscape-font-specification:'Raconteur NF';stroke-width:0.264583"
-       x="16.522947"
-       y="33.872036"
-       id="text1024"><tspan
-         sodipodi:role="line"
-         id="tspan1022"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.05px;font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek';stroke-width:0.264583"
-         x="16.522947"
-         y="33.872036">WATSON</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.05px;font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek';stroke-width:0.264583"
-         x="16.522947"
-         y="62.447037"
-         id="tspan1026">CONSORTIA</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.05px;font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek';stroke-width:0.264583"
-         x="16.522947"
-         y="91.022034"
-         id="tspan1030">LLC</tspan></text>
+    <g
+       aria-label="WATSON
+CONSORTIA"
+       id="text1024"
+       style="font-size:19.05px;line-height:1.25;font-family:'Raconteur NF';-inkscape-font-specification:'Raconteur NF';stroke-width:0.264583">
+      <path
+         d="M 23.035031,26.120729 V 13.995888 h 5.195032 v 12.124841 z m -4.329968,6.925158 -2.59519,-2.59519 V 13.995888 h 5.195031 V 27.850855 H 29.96019 V 13.995888 h 5.199682 v 16.454809 l -2.599841,2.59519 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4060" />
+      <path
+         d="M 36.908602,33.045887 V 20.925697 H 50.758919 V 19.19557 H 36.908602 v -2.599841 l 2.59519,-2.599841 H 53.35876 l 2.599841,2.599841 v 16.450158 h -5.199682 v -6.925158 h -8.655286 v 6.925158 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4062" />
+      <path
+         d="m 64.632489,33.045887 v -12.12019 h 5.195032 v 12.12019 z M 57.707331,19.19557 V 13.995888 H 76.75733 v 5.199682 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4064" />
+      <path
+         d="M 78.50606,33.045887 V 27.850855 H 92.356376 V 26.120729 H 81.10125 l -2.59519,-2.599842 v -2.59519 h 16.450158 l 2.599841,2.59519 v 6.92981 l -2.599841,2.59519 z m 0,-13.850317 v -2.599841 l 2.59519,-2.599841 h 16.454809 v 5.199682 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4066" />
+      <path
+         d="M 113.15511,27.850855 V 19.19557 h -8.65529 v 8.655285 z m -11.25513,5.195032 -2.595191,-2.59519 V 16.595729 l 2.595191,-2.599841 h 13.85497 l 2.59984,2.599841 v 13.854968 l -2.59984,2.59519 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4068" />
+      <path
+         d="M 120.10352,33.045887 V 13.995888 h 5.19503 l 8.65528,8.659936 v -8.659936 h 5.19969 v 19.049999 h -5.19969 v -2.59519 l -8.65528,-8.659937 v 11.255127 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4070" />
+      <path
+         d="m 18.705063,61.620886 -2.59519,-2.59519 V 45.170728 l 2.59519,-2.599841 h 13.854968 l 2.599841,2.599841 v 5.195031 H 29.96019 v -2.59519 h -8.655286 v 8.655285 h 8.655286 v -2.59519 h 5.199682 v 5.195032 l -2.599841,2.59519 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4072" />
+      <path
+         d="m 50.758919,56.425854 v -8.655285 h -8.655286 v 8.655285 z m -11.255127,5.195032 -2.59519,-2.59519 V 45.170728 l 2.59519,-2.599841 H 53.35876 l 2.599841,2.599841 v 13.854968 l -2.599841,2.59519 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4074" />
+      <path
+         d="M 57.707331,61.620886 V 42.570887 h 5.195031 l 8.655286,8.659936 v -8.659936 h 5.199682 v 19.049999 h -5.199682 v -2.59519 l -8.655286,-8.659937 v 11.255127 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4076" />
+      <path
+         d="M 78.50606,61.620886 V 56.425854 H 92.356376 V 54.695727 H 81.10125 l -2.59519,-2.599841 v -2.59519 h 16.450158 l 2.599841,2.59519 v 6.92981 l -2.599841,2.59519 z m 0,-13.850317 v -2.599841 l 2.59519,-2.599841 h 16.454809 v 5.199682 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4078" />
+      <path
+         d="m 113.15511,56.425854 v -8.655285 h -8.65529 v 8.655285 z m -11.25513,5.195032 -2.595191,-2.59519 V 45.170728 l 2.595191,-2.599841 h 13.85497 l 2.59984,2.599841 v 13.854968 l -2.59984,2.59519 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4080" />
+      <path
+         d="m 120.10352,61.620886 v -12.12019 h 5.19503 v 12.12019 z m 13.85031,0 v -5.195032 l -1.73012,-1.730127 h -5.19503 v -5.195031 h 6.92515 v -1.730127 h -13.85031 v -5.199682 h 16.45016 l 2.59984,2.599841 v 5.195031 l -1.73478,1.730127 1.73478,1.734778 v 7.790222 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4082" />
+      <path
+         d="m 147.8274,61.620886 v -12.12019 h 5.19504 v 12.12019 z m -6.92515,-13.850317 v -5.199682 h 19.05 v 5.199682 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4084" />
+      <path
+         d="m 161.70097,61.620886 v -12.12019 h 5.19503 v 12.12019 z m 0,-13.850317 v -5.199682 h 5.19503 v 5.199682 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4086" />
+      <path
+         d="m 168.62148,61.620886 v -12.12019 h 13.85032 v -1.730127 h -13.85032 v -2.599841 l 2.5952,-2.599841 h 13.85496 l 2.59984,2.599841 v 16.450158 h -5.19968 v -6.925159 h -8.65528 v 6.925159 z"
+         style="font-family:'Bloc Tek';-inkscape-font-specification:'Bloc Tek'"
+         id="path4088" />
+    </g>
   </g>
 </svg>
