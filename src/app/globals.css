@@ -1,0 +1,89 @@
+/* Theme: #3e11ba, #250c7d */
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Text Selection */
+
+::-moz-selection {
+  color: #FFFFFF;
+  background: #3e11ba;
+}
+
+::selection {
+  color: #FFFFFF;
+  background: #3e11ba;
+}
+
+/* Animations */
+
+
+.fade-in {
+  animation: fadeIn 3s ease-in-out;
+}
+.fade-in-right {
+  animation: fadeInRight 1s ease-in-out;
+}
+.fade-in-left {
+  animation: fadeInLeft 1s ease-in-out;
+}
+.fade-in-top {
+  animation: fadeInTop 1s ease-in-out;
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Light mode / Dark Mode */
+
+@media (prefers-color-scheme: light) {
+  #cb-cookie-banner {
+      background-color: white;
+      color: black;
+      border-top: 1px solid #C0C0C0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #cb-cookie-banner {
+      background-color: #000;
+      color: #FFF;
+      border-top: 1px solid #C0C0C0;
+  }
+}

@@ -1,0 +1,14 @@
+.navbar-logo {
+    max-height: 50px;
+}
+
+nav {
+    --bs-tertiary-bg-rgb: --bs-body-bg !important;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .navbar-logo {
+        filter: brightness(2);
+    }
+}
