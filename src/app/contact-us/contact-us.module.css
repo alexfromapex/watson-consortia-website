@@ -1,0 +1,17 @@
+main.main{
+    min-height: 100vh;
+  }
+  /* #3e11ba, #250c7d */
+  .hero {
+    height: 50vh;
+    color: white;
+    background-image: url("/assets/contact-us.jpg");
+    background-size: cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 0 50%, 100% 40%, 50% 50%;
+    background-attachment: scroll, fixed, scroll;
+  }
+  .hero img {
+    max-height: 40vh;
+    width: auto;
+  }
