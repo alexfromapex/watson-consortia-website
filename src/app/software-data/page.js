@@ -1,14 +1,9 @@
 "use client";
-import {useEffect} from "react";
 import styles from "./software.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrain, faCloud, faDatabase, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Services() {
-
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
 
   return (
     <>

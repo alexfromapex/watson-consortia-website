@@ -15,3 +15,6 @@ main.main{
     max-height: 40vh;
     width: auto;
   }
+  .form-control {
+    border: 1px solid var(--bs-primary-color);
+  }

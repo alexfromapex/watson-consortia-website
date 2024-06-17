@@ -1,9 +1,8 @@
 import { Inter } from "next/font/google";
 import "./theme.scss";
 import "./globals.css";
-import Nav from "./nav";
-import Footer from "./footer";
-import CookieBanner from "./cookie_banner";
+import App from "./home";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,15 +21,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" data-bs-theme="dark">
-      <body className={`${inter.className} body`}>
-        <Nav />
-        {children}
-        <CookieBanner />
-        <div className="container">
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <App inter>
+      {children}
+    </App>
   );
 }
