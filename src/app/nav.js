@@ -29,8 +29,8 @@ const Nav = () => {
                     </a>
                     <div className="dropdown-menu ps-2 pe-5" aria-labelledby="navbarDropdown">
                         <Link className="dropdown-item nav-link" href="/software-data">Software &amp; Data</Link>
-                        <Link className="dropdown-item nav-link" href="/cinema-vfx">Cinema &amp; VFX</Link>
-                        <Link className="dropdown-item nav-link" href="/construction">Construction &amp; Contracting</Link>
+                        {/* <Link className="dropdown-item nav-link" href="/cinema-vfx">Cinema &amp; VFX</Link>
+                        <Link className="dropdown-item nav-link" href="/construction">Construction &amp; Contracting</Link> */}
                     </div>
                 </li>
                 <li className="nav-item">
