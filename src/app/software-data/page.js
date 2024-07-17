@@ -7,18 +7,17 @@ export default function Services() {
 
   return (
     <>
+      <title>Software &amp; Data Services - Watson Consortia</title>
       <main className="main">
         <div className="container-fluid">
-          <div className="row align-items-center justify-content-center py-3 hero-container">
-            <div className={`row ${styles.hero} fade-in-bg`}>
-              <div className="jumbotron p-5 justify-content-end d-flex">
-              </div>
+          <div className="row py-3">
+            <div className={`row ${styles.hero} fade-in-bg align-items-center justify-content-end`}>
+              <h1 className="col-xl-6 fade-in-right">Software / Data / AI Solutions</h1>
             </div>
           </div>
         </div>
       </main>
       <div className="container px-3 justify-content-center">
-        <h1 className="mt-3 mb-5 fade-in-top">Software &amp; Data Services</h1>
         <div className="row my-5 align-items-center">
           <h2 className="mt-3 mb-5 fade-in-top">Our Expertise</h2>
           <div className="col-md-4">
@@ -34,7 +33,7 @@ export default function Services() {
           </div>
         </div>
         <div className="row my-5 align-items-center">
-          <h2 className="mt-3 mb-5">Specialties</h2>
+          <h2 className="mt-3 mb-5 fade-in-top">Specialties</h2>
           <div className="col-md-8">
             <ul>
               <li><strong>Data Gathering and Analysis</strong>: We extract valuable insights from large datasets using tools like Pandas, NumPy, and Sympy.</li>

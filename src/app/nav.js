@@ -13,7 +13,7 @@ const Nav = () => {
         <nav className="navbar navbar-expand-lg py-3">
         <div className="container-fluid">
             <Link href="/">
-            <img className="navbar-logo" src="./assets/logo.svg" alt="Watson Consortia" />
+                <img className="navbar-logo" src="./assets/logo.svg" alt="Watson Consortia" />
             </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

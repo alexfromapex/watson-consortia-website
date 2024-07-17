@@ -2,18 +2,22 @@
 
 html, body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Text Selection */
-
 ::-moz-selection {
   color: #FFFFFF;
-  background: #3e11ba;
+  background-color: #3e11ba;
 }
-
+::-webkit-selection {
+  color: #FFFFFF;
+  background-color: #3e11ba;
+}
 ::selection {
   color: #FFFFFF;
-  background: #3e11ba;
+  background-color: #3e11ba;
 }
 
 /* Animations */
@@ -76,7 +80,12 @@ html, body {
   #cb-cookie-banner {
       background-color: white;
       color: black;
-      border-top: 1px solid #C0C0C0;
+      border-top: 1px solid #FFF;
+  }
+
+  footer .footer {
+    background-color: #1f1f1f;
+    color: white !important;
   }
 }
 
@@ -86,4 +95,27 @@ html, body {
       color: #FFF;
       border-top: 1px solid #C0C0C0;
   }
+  
+  footer .footer {
+    background-color: #222222;
+  }
+}
+
+/* Footer */
+
+footer .footer {
+  min-height: 25vh;
+}
+footer .coda {
+  background-color: #000;
+  min-height: 25vh;
+  min-width: 100vw;
+  color: white;
+}
+
+footer .footer-logo {
+  display: block;
+  max-height: 10vh;
+  width: auto;
+  max-width: 90%;
 }

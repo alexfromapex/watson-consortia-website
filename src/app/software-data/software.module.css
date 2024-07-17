@@ -5,15 +5,22 @@ main.main{
 .hero {
   height: 50vh;
   color: white;
-  background-image: url('/assets/waves.png'), linear-gradient(to bottom, #3e11ba, #250c7d);
+  /* background-image: url('/assets/waves.png'), linear-gradient(to bottom, #3e11ba, #250c7d);
+   */
+  background-image: url('/assets/waves.png'), linear-gradient(to bottom, rgb(81, 15, 179), rgb(211, 0, 255));
   background-size: 100vw 70vh, contain;
   background-repeat: no-repeat, no-repeat;
   background-position: 0% 50%, 0% 0%;
   background-attachment: fixed;
+  animation: fadeInBackgroundImage 1.5s forwards;
 }
 .hero img {
   max-height: 40vh;
   width: auto;
+}
+
+.hero-container {
+  border: 5px solid red;
 }
 
 /* Hero Animation */
@@ -26,15 +33,15 @@ main.main{
     opacity: 1;
   }
 }
-.hero::before {
+/* .hero::before {
   content: " ";
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('/assets/word-cloud.svg');
-  background-size: contain;
+  height: 100%; */
+  /* background-image: url('/assets/word-cloud.svg'); */
+  /* background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 50%;
   background-attachment: scroll, fixed;
@@ -43,7 +50,7 @@ main.main{
   transform-style: preserve-3d;
   transform-origin: bottom;
   animation: fadeInBackgroundImage 1.5s forwards;
-}
+} */
 
 @media only screen and (min-width: 1921px) {
   .hero {

@@ -4,11 +4,12 @@ main.main{
 /* #3e11ba, #250c7d */
 .hero {
   color: #FFF;
-  height: 50vh;
-  background-image: url('/assets/laptop-dark2.jpg'), linear-gradient(#000,#000);
+  background-image: linear-gradient(#000,#794eef);
   background-size: contain;
   background-repeat: no-repeat;
-  /* background-position: 0 50%; */
+  position: relative;
+  max-width: 100%;
+  padding:0;
 }
 .hero h4 {
   color: #FFF;
@@ -16,4 +17,27 @@ main.main{
 .hero img {
   max-height: 40vh;
   width: auto;
+}
+
+.jumbotron {
+  position: absolute;
+  z-index: 100;
+  min-height: 100%;
+  max-height: 40vh;
+}
+
+/* Hero video background */
+.videobg {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  min-height: 100%;
+}
+.videobg video {
+  z-index: 0;
+  max-width: 130%;
+  min-width: 100%;
+  min-height: 100%;
 }

@@ -39,9 +39,7 @@ export const App = ({ inter, children }) => {
           <Nav />
           {children}
           <CookieBanner />
-          <div className="container">
-            <Footer />
-          </div>
+          <Footer />
         </body>
       </html>
     )
