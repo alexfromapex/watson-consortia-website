@@ -1,5 +1,6 @@
 "use client";
 import {useCallback, useEffect, useState} from "react";
+import { usePathname } from "next/navigation";
 import Nav from "./nav";
 import Footer from "./footer";
 import CookieBanner from "./cookie_banner";
@@ -30,6 +31,13 @@ export const App = ({ inter, children }) => {
             setDarkMode("dark");
         }
     }, [typeof(_window),typeof(_window?.matchMedia)], matchMedia('(prefers-color-scheme: dark)'));
+
+    const pathname = usePathname()
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        console.log("WHOOWHOWOWHWOH")
+    }, [pathname]);
 
     const [darkMode, setDarkMode] = useState("auto");
     
