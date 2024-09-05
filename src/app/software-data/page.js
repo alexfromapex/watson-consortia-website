@@ -11,7 +11,7 @@ export default function Services() {
       <main className="main">
         <div className="container-fluid">
           <div className="row py-3">
-            <div className={`row ${styles.hero} fade-in-bg align-items-center justify-content-end`}>
+            <div className={`row ${styles.hero} align-items-center justify-content-end`}>
               <h1 className="col-xl-6 fade-in-right">Software / Data / AI Solutions</h1>
             </div>
           </div>
@@ -19,12 +19,12 @@ export default function Services() {
       </main>
       <div className="container px-3 justify-content-center">
         <div className="row my-5 align-items-center">
-          <h2 className="mt-3 mb-5 fade-in-top">Our Expertise</h2>
+          <h2 className="mt-3 mb-5 fade-in">Our Expertise</h2>
           <div className="col-md-4">
-            <FontAwesomeIcon icon={faBrain} size="10x" color="var(--bs-primary)" className="fade-in-left" />
+            <FontAwesomeIcon icon={faBrain} size="10x" color="var(--bs-primary)" className="fade-in" />
           </div>
           <div className="col-md-8">
-            <ul className="fa-ul fade-in-right">
+            <ul className="fa-ul fade-in">
               <li><strong>Artificial Intelligence and Machine Learning</strong>: Our team is well-versed in AI and ML libraries like PyTorch, TensorFlow, Keras, MLFlow, Scikit-learn, and NLTK, allowing us to develop intelligent systems that drive business insights.</li>
               <li><strong>Data Engineering</strong>: We design and develop scalable data pipelines, leveraging technologies like PySpark, Airflow, and Kubernetes to ensure seamless data flow.</li>
               <li><strong>API Development</strong>: Our expertise in Python and Rust FFI, combined with libraries like FastAPI, Flask, and OpenCV, enables us to craft robust APIs that meet the needs of your business.</li>
@@ -33,7 +33,7 @@ export default function Services() {
           </div>
         </div>
         <div className="row my-5 align-items-center">
-          <h2 className="mt-3 mb-5 fade-in-top">Specialties</h2>
+          <h2 className="mt-3 mb-5 fade-in">Specialties</h2>
           <div className="col-md-8">
             <ul>
               <li><strong>Data Gathering and Analysis</strong>: We extract valuable insights from large datasets using tools like Pandas, NumPy, and Sympy.</li>

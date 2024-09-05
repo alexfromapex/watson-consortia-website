@@ -7,7 +7,7 @@ main.main{
   color: white;
   /* background-image: url('/assets/waves.png'), linear-gradient(to bottom, #3e11ba, #250c7d);
    */
-  background-image: url('/assets/waves.png'), linear-gradient(to bottom, rgb(81, 15, 179), rgb(211, 0, 255));
+  background-image: url('/assets/waves.png'), linear-gradient(to bottom, var(--bs-primary), var(--bs-secondary));
   background-size: 100vw 70vh, contain;
   background-repeat: no-repeat, no-repeat;
   background-position: 0% 50%, 0% 0%;
@@ -26,8 +26,8 @@ main.main{
 /* Hero Animation */
 @keyframes fadeInBackgroundImage {
   from {
-    opacity: 0;
-    transform: translateY(-100px);
+    opacity: 0.4;
+    /* transform: translateX(-50px); */
   }
   to {
     opacity: 1;

@@ -1,11 +1,12 @@
 "use client";
+import "./footer.css";
 import Link from 'next/link';
 
 const Footer = () => {
     return (
       <>
-        <footer className="pt-0 pb-0 mt-4">
-          <div className="footer align-items-center flex-row d-flex">
+        <footer className="row pt-0 pb-0 mt-4">
+          <div className="footer align-items-center">
             <div className="container">
               <div className="row p-5 justify-content-center">
                 <div className="col-xl-3">

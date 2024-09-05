@@ -9,10 +9,27 @@ $navbar-light-hover-color: rgba($primary, 0.8);
 $navbar-light-active-color: rgba($primary, .9);
 $background-tertiary: red;
 
+::selection {
+    background-color: $primary !important;
+    color: #FFFFFF !important;
+}
+  
+/* Optional: Define styles for non-printable selection (for better consistency across browsers) */
+::-moz-selection { /* Firefox */
+    background-color: $primary !important;
+    color: #FFFFFF !important;
+}
+
+::-webkit-selection { /* Chrome, Safari, and Edge */
+    background-color: $primary;
+    color: #FFFFFF;
+}
+
+
 // Bootstrap and its default variables
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // dark mode overrides
-@import "./dark-mode-variables.scss";
+// @import "./dark-mode-variables.scss";
 
 

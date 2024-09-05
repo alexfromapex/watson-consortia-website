@@ -1,0 +1,31 @@
+/* Light mode / Dark Mode */
+
+footer .footer {
+    @media (prefers-color-scheme: light) {
+        background-color: #1f1f1f;
+        color: white !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #222222;
+    }
+}
+
+
+footer .footer {
+    min-height: 25vh;
+}
+
+footer .coda {
+    background-color: #000;
+    min-height: 25vh;
+    min-width: 100vw;
+    color: white;
+}
+
+footer .footer-logo {
+    display: block;
+    max-height: 10vh;
+    width: auto;
+    max-width: 90%;
+}

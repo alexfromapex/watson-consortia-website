@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from '@formspree/react';
-import styles from "./contact-us.module.css";
+import "./contact-us.css";
 
 export default function ContactUs() {
   const formRef = useRef();
@@ -31,7 +31,7 @@ export default function ContactUs() {
       return (
       <div className="container">
         <div className="col-xl-6">
-          <p className="text-success">Your message was sent! We will respond as soon as possible.</p>
+          <p className="alert-success">Your message was sent! We will respond as soon as possible.</p>
         </div>
       </div>
       );
@@ -41,7 +41,7 @@ export default function ContactUs() {
     return (
       <div className="container">
         <div className="col-xl-6">
-          <p className="text-danger">There was a problem submitting the form. Please try again.</p>
+          <p className="alert-danger">There was a problem submitting the form. Please try again.</p>
         </div>
       </div>
     );
@@ -53,7 +53,7 @@ export default function ContactUs() {
       <main className="main">
         <div className="container-fluid">
           <div className="row align-items-center justify-content-center py-3">
-            <div className={`row ${styles.hero}`}>
+            <div className={`row hero`}>
               <div className="jumbotron p-5 justify-content-end d-flex">
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function ContactUs() {
           <div className="row">
             <div className="col-md-2">
               <label htmlFor="from" className="form-label required pe-3 col-form-label">
-                Your E-mail Address:
+                Your E-mail Address:<span>*</span>
               </label>
             </div>
             <div className="col-md-10 d-flex mb-3">
@@ -109,7 +109,7 @@ export default function ContactUs() {
           <div className="row">
             <div className="col-md-2">
               <label htmlFor="subject" className="form-label required pe-3 col-form-label">
-                Subject:
+                Subject:<span>*</span>
               </label>
             </div>
             <div className="col-md-10 d-flex mb-3">
@@ -128,7 +128,7 @@ export default function ContactUs() {
           <div className="row">
             <div className="col-md-2">
               <label htmlFor="message" className="form-label required pe-3 col-form-label">
-                Message:
+                Message:<span>*</span>
               </label>
             </div>
             <div className="col-md-10 d-flex mb-3">
@@ -147,7 +147,7 @@ export default function ContactUs() {
               <input
                 disabled={formDisabled || formState.submitting}
                 type="submit"
-                className="btn btn-primary"
+                className={`btn btn-primary ${formDisabled ? "disabled": ""}`}
                 value="Send Message"
               />
             </div>

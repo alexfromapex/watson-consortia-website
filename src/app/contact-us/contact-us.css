@@ -1,5 +1,5 @@
 main.main{
-  min-height: 100vh;
+  min-height: 20vh;
 }
 /* #3e11ba, #250c7d */
 .hero {
@@ -19,7 +19,11 @@ main.main{
   border: 1px solid var(--bs-primary-color);
 }
 
-label.form-label::after {
-  content: "*";
+.required > span {
   color:red;
+  margin-left: 5px;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
 }

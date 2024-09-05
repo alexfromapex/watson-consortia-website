@@ -1,4 +1,5 @@
 "use client";
+import "./cookie_banner.css";
 import {useEffect, useState} from "react";
 import {getCookie, setCookie} from "./utils";
 

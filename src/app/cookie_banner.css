@@ -1,0 +1,15 @@
+/* Light mode / Dark Mode */
+
+#cb-cookie-banner {
+    @media (prefers-color-scheme: light) {
+        background-color: white;
+        color: black;
+        border-top: 1px solid #FFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #000;
+        color: #FFF;
+        border-top: 1px solid #C0C0C0;
+    }
+}

@@ -21,7 +21,7 @@ export const App = ({ inter, children }) => {
 
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
-      }, []);
+    }, []);
 
     useEffect(() => {
         if(matchMedia("(prefers-color-scheme: dark)").matches == false) {
