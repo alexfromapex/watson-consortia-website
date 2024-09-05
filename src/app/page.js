@@ -36,7 +36,7 @@ export default function Home() {
                   </video>
 
                   <div className="jumbotron p-5 justify-content-center align-items-start d-flex flex-column col-xl-6">
-                    <h1 className="mx-5 text-primary fade-in-right">Transform your business</h1>
+                    <h1 className="mx-5 text-primary brighten fade-in-right">Transform your business</h1>
                     <div className="mx-5">
                       <h4 className="fade-in-right text-white">beat the competition with cutting-edge solutions</h4>
                     </div>
