@@ -13,10 +13,6 @@ export default function ContactUs() {
   const msgRef = useRef();
   const [formDisabled, setFormDisabled] = useState(true);
 
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
-
   const checkFormValidity = () => {
     const formIsValid =
       fromRef.current?.validity.valid &&
@@ -50,10 +46,10 @@ export default function ContactUs() {
   return (
     <>
       <title>Contact Us - Watson Consortia</title>
-      <main className="main">
+      <main className="main-contact-us">
         <div className="container-fluid">
           <div className="row align-items-center justify-content-center py-3">
-            <div className={`row hero`}>
+            <div className={`row hero-contact-us`}>
               <div className="jumbotron p-5 justify-content-end d-flex">
               </div>
             </div>
@@ -86,6 +82,8 @@ export default function ContactUs() {
                 placeholder="Enter your e-mail address, e.g. you@gmail.com"
                 required
                 onChange={checkFormValidity}
+                tabIndex={0}
+                autoFocus
               />
             </div>
           </div>

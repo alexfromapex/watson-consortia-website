@@ -1,9 +1,9 @@
 "use client";
 import {useCallback, useEffect, useState} from "react";
 import { usePathname } from "next/navigation";
-import Nav from "./nav";
 import Footer from "./footer";
 import CookieBanner from "./cookie_banner";
+import Nav from "./nav";
 
 export const App = ({ inter, children }) => {
 
@@ -36,7 +36,6 @@ export const App = ({ inter, children }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        console.log("WHOOWHOWOWHWOH")
     }, [pathname]);
 
     const [darkMode, setDarkMode] = useState("auto");
@@ -44,7 +43,7 @@ export const App = ({ inter, children }) => {
     return (
         <html lang="en" data-bs-theme={darkMode}>
         <body className={`${inter.className} body`}>
-          <Nav />
+          <Nav/>
           {children}
           <CookieBanner />
           <Footer />

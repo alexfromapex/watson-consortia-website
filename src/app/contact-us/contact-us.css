@@ -2,7 +2,7 @@ main.main{
   min-height: 20vh;
 }
 /* #3e11ba, #250c7d */
-.hero {
+.hero-contact-us {
   height: 50vh;
   color: white;
   background-image: url("/assets/contact-us.jpg");
@@ -11,7 +11,7 @@ main.main{
   background-position: 0 50%, 100% 40%, 50% 50%;
   background-attachment: scroll, fixed, scroll;
 }
-.hero img {
+.hero-contact-us img {
   max-height: 40vh;
   width: auto;
 }

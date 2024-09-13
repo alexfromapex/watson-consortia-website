@@ -3,11 +3,13 @@ $primary: #3e11ba;
 $secondary: rgba($primary, 0.1);
 $body-color: #000;
 $body-bg-dark: #111;
+$dark: #000;
+$dropdown-dark-bg: rgba(0,0,0,0.8);
 
 $navbar-light-color: $primary;
 $navbar-light-hover-color: rgba($primary, 0.8);
 $navbar-light-active-color: rgba($primary, .9);
-$background-tertiary: red;
+$navbar-dark-bg-color: #000;
 
 ::selection {
     background-color: $primary !important;

@@ -6,10 +6,6 @@ html, body {
   padding: 0;
 }
 
-.brighten.text-primary {
-  filter: brightness(220%);
-}
-
 /* Animations */
 
 .fade-in {

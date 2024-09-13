@@ -1,7 +1,4 @@
-main.main{
-  /* min-height: 30vh;
-  max-height: 50vh; */
-}
+
 /* #3e11ba, #250c7d */
 .hero {
   color: #FFF;
@@ -19,16 +16,76 @@ main.main{
   width: auto;
 }
 
-.jumbotron {
-  top: calc(30%);
-  right: 0;
-  position: absolute;
-  z-index: 100;
-  height: 50%;
+/* Hero background */
+.herobg {
+  /* object-fit: contain; */
+  position: relative;
+  overflow: hidden;
+  max-height: 100vh;
+  padding: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  background-image: url("/assets/compute.jpeg");
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
-/* Hero video background */
-.videobg {
+.herobg .full-height {
+  height: 100%;
+}
+
+/* Our Expertise */
+.conditional-flexing {
+  flex-direction: row !important;
+}
+.conditional-flexing .card {
+  flex-direction: column !important;
+}
+
+/* Our Approach */
+.approach svg {
+  font-size: 60px;
+}
+.approach svg.fa-arrow-right {
+  font-size: 20px;
+}
+
+@media (max-width: 992px) {
+  .approach {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .approach svg {
+    font-size: 40px;
+  }
+  .approach svg.fa-arrow-right {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .herobg {
+    --bs-aspect-ratio: 56.25%;
+  }
+}
+@media (max-width: 1000px) and (min-width: 768px) {
+  .herobg .crunch h1, .herobg .crunch h4 {
+    max-width: 50vw;
+    margin: auto auto;
+  }
+}
+
+@media (max-width: 1368px) {
+  .conditional-flexing {
+    flex-direction: column !important;
+  }
+}
+
+
+/* Video background */
+
+/* .videobg {
   position: relative;
   overflow: hidden;
   max-width: 100%;
@@ -41,4 +98,4 @@ main.main{
   max-width: 100%;
   min-width: 100%;
   min-height: 100%;
-}
+} */
