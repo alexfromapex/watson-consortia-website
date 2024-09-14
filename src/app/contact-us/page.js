@@ -25,9 +25,9 @@ export default function ContactUs() {
   const [formState, handleSubmit] = useForm("xpwazbqq");
   if (formState.succeeded) {
       return (
-      <div className="container">
-        <div className="col-xl-6">
-          <p className="alert-success">Your message was sent! We will respond as soon as possible.</p>
+      <div className="container mt-5 pt-5 text-center">
+        <div className="col-xl-12">
+          <p className="text-success alert-success my-5">Your message was sent! We will respond as soon as possible.</p>
         </div>
       </div>
       );
@@ -35,9 +35,9 @@ export default function ContactUs() {
 
   if (formState.errors) {
     return (
-      <div className="container">
-        <div className="col-xl-6">
-          <p className="alert-danger">There was a problem submitting the form. Please try again.</p>
+      <div className="container mt-5 pt-5 text-center">
+        <div className="col-xl-12">
+          <p className="text-danger alert-danger my-5">There was a problem submitting the form. Please try again.</p>
         </div>
       </div>
     );
