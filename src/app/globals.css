@@ -6,6 +6,13 @@ html, body {
   padding: 0;
 }
 
+/* Custom spacing */
+
+.big-margins {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
 /* Animations */
 
 .fade-in {
@@ -18,7 +25,7 @@ html, body {
   animation: fadeInLeft 1s ease-in-out;
 }
 .fade-in-top {
-  animation: fadeInTop 1s ease-in-out;
+  animation: fadeInTop 2s ease-in-out;
 }
 
 @keyframes fadeInTop {

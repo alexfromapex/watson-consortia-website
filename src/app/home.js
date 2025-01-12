@@ -1,5 +1,5 @@
 "use client";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import { usePathname } from "next/navigation";
 import Footer from "./footer";
 import CookieBanner from "./cookie_banner";
@@ -7,7 +7,7 @@ import Nav from "./nav";
 
 export const App = ({ inter, children }) => {
 
-    let _window = typeof(window) === "undefined" ? function() {} : window;
+    let _window = useMemo(() => typeof(window) === "undefined" ? function() {} : window, []);
 
     const matchMedia = useCallback((query) => {
         if(typeof(window) !== "undefined") {
@@ -18,7 +18,7 @@ export const App = ({ inter, children }) => {
             addListener : function() {},
             removeListener: function() {}
         };
-    }, [typeof(_window),typeof(_window?.matchMedia)]);
+    }, [_window]);
 
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -30,7 +30,7 @@ export const App = ({ inter, children }) => {
         } else {
             setDarkMode("dark");
         }
-    }, [typeof(_window),typeof(_window?.matchMedia)], matchMedia('(prefers-color-scheme: dark)'));
+    }, [_window, _window?.matchMedia, matchMedia], matchMedia('(prefers-color-scheme: dark)'));
 
     const pathname = usePathname()
 
