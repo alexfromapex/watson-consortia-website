@@ -18,7 +18,7 @@ export default function BigData() {
     }
 
     return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-  }, path);
+  }, [path]);
 
   return (
     <>
@@ -83,7 +83,7 @@ export default function BigData() {
           ))}
         </ul>
         
-        <div className="bg-light p-4 rounded mb-5">
+        <div className="rounded mb-5">
           <h2 className="h4 fw-bold mb-3">
             <FontAwesomeIcon icon={faBolt} className="me-2 text-primary" /> High-Performance Solutions
           </h2>
@@ -91,10 +91,10 @@ export default function BigData() {
             With a track record of success working with industry Fortune 500 giants, we bring unparalleled expertise to your Big Data challenges. Our experience includes:
           </p>
           <ul className="list-unstyled">
-            <li><FontAwesomeIcon icon={faChevronRight} className="me-2" />Managing billion-dollar data platforms</li>
-            <li><FontAwesomeIcon icon={faChevronRight} className="me-2" />Implementing microservice architectures for clinical trial data mining</li>
-            <li><FontAwesomeIcon icon={faChevronRight} className="me-2" />Agile for global teams</li>
-            <li><FontAwesomeIcon icon={faChevronRight} className="me-2" />Developing AI/ML-powered data analysis solutions</li>
+            <li className="mb-2"><FontAwesomeIcon icon={faChevronRight} className="me-2" />Managing billion-dollar data platforms</li>
+            <li className="mb-2"><FontAwesomeIcon icon={faChevronRight} className="me-2" />Implementing microservice architectures for data mining</li>
+            <li className="mb-2"><FontAwesomeIcon icon={faChevronRight} className="me-2" />Agile &amp; Scrum for global teams</li>
+            <li className="mb-2"><FontAwesomeIcon icon={faChevronRight} className="me-2" />Developing AI/ML-powered data analysis solutions</li>
           </ul>
         </div>
         
