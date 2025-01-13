@@ -18,7 +18,7 @@ export default function AIML() {
     }
 
     return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-  }, path);
+  }, [path]);
 
   const ExpertiseCard = ({ icon, title, description }) => (
     <div className="col-md-6 col-lg-3 mb-4">
@@ -55,10 +55,10 @@ export default function AIML() {
   return (
     <>
       <title>AI &amp; Machine Learning - Watson Consortia</title>
-      <main className="main">
+      <main className="main" key={path}>
         <div className="container-fluid">
           <div className="row pb-3">
-            <div className={`row hero align-items-center justify-content-end`}>
+            <div className="row hero align-items-center justify-content-end">
               <h1 className="col-xl-6 fade-in-right">Empowering Your Business with Cutting-Edge AI Technologies</h1>
             </div>
           </div>

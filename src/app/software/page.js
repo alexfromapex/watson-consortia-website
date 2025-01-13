@@ -18,7 +18,7 @@ export default function Software() {
     }
 
     return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-  }, path);
+  }, [path]);
 
   const TechnologyCard = ({ icon, title, description }) => (
     <div className="col-md-6 col-lg-3">
@@ -67,10 +67,10 @@ export default function Software() {
   return (
     <>
       <title>Software Engineering - Watson Consortia</title>
-      <main className="main">
+      <main className="main" key={path}>
         <div className="container-fluid">
           <div className="row pb-3">
-            <div className={`row hero align-items-center justify-content-end`}>
+            <div className="row hero align-items-center justify-content-end">
               <h1 className="col-xl-6 fade-in-right">Building Robust, Scalable, and Efficient Software Systems</h1>
             </div>
           </div>

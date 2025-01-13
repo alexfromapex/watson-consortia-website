@@ -8,23 +8,18 @@ main.main{
 }
 
 .hero {
-position: relative;
-height: 90vh;
-color: white;
+  position: relative;
+  height: 90vh;
+  color: white;
 
-/* Define the linear gradient and bigdata.png as a single background image */
-background-image:
-    url('/assets/bigdata.png'),
-    linear-gradient(to bottom, rgb(3, 3, 38), indigo);
-background-size:
-    cover,
-    cover;
-background-repeat: no-repeat, no-repeat;
-background-position: top 20%, 90% 70%;
-background-attachment: fixed;
-
+  /* Define the linear gradient and bigdata.png as a single background image */
+  background: url('/assets/bigdata.png') no-repeat top 20% left 50%, 
+  linear-gradient(to bottom, rgb(3, 3, 38), indigo) no-repeat center center;
+  background-size: cover, cover;
+  background-attachment: fixed;
+}
 /* Define the big_data_img.svg as a separate background image */
-&::before {
+.hero::before {
     content: ' ';
     position: absolute;
     top: 0;
@@ -35,7 +30,6 @@ background-attachment: fixed;
     background-size: 20% 20%;
     background-repeat: no-repeat;
     background-position: 98% 90%;
-}
 }
 
 /* Hero Animation */

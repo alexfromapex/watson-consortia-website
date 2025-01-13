@@ -23,10 +23,10 @@ export default function BigData() {
   return (
     <>
       <title>Big Data - Watson Consortia</title>
-      <main className="main">
+      <main className="main" key={path}>
         <div className="container-fluid mx-0 px-0">
           <div className="row pb-3 pr-3">
-            <div className={`hero row align-items-center justify-content-end px-5`}>
+            <div className="hero row align-items-center justify-content-end px-5">
               <h1 className="p-3 col-xl-6 fade-in-right">Transforming Big Data Challenges into Opportunities</h1>
             </div>
           </div>

@@ -13,18 +13,13 @@ main.main{
   color: white;
 
   /* Define the linear gradient and bigdata.png as a single background image */
-  background-image:
-      url('/assets/bigdata.png'),
-      linear-gradient(to bottom, rgb(3, 3, 38), indigo);
-  background-size:
-      cover,
-      cover;
-  background-repeat: no-repeat, no-repeat;
-  background-position: top 20%, 90% 70%;
+  background: url('/assets/bigdata.png') no-repeat top 20% left 50%, 
+  linear-gradient(to bottom, rgb(3, 3, 38), indigo) no-repeat center center;
+  background-size: cover, cover;
   background-attachment: fixed;
-
-  /* Define the big_data_img.svg as a separate background image */
-  &::before {
+}
+/* Define the big_data_img.svg as a separate background image */
+.hero::before {
       content: ' ';
       position: absolute;
       top: 0;
@@ -35,34 +30,33 @@ main.main{
       background-size: 20% 20%;
       background-repeat: no-repeat;
       background-position: 98% 90%;
-  }
 }
 
-  /* Hero Animation */
-  @keyframes fadeInBackgroundImage {
-    from {
-      opacity: 0.4;
-      /* transform: translateX(-50px); */
-    }
-    to {
-      opacity: 1;
-    }
+/* Hero Animation */
+@keyframes fadeInBackgroundImage {
+  from {
+    opacity: 0.4;
+    /* transform: translateX(-50px); */
   }
-  /* .hero::before {
-    content: " ";
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; */
-    /* background-image: url('/assets/word-cloud.svg'); */
-    /* background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 50%;
-    background-attachment: scroll, fixed;
-    display: block;
+  to {
     opacity: 1;
-    transform-style: preserve-3d;
-    transform-origin: bottom;
-    animation: fadeInBackgroundImage 1.5s forwards;
-  } */
+  }
+}
+/* .hero::before {
+  content: " ";
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+  /* background-image: url('/assets/word-cloud.svg'); */
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-attachment: scroll, fixed;
+  display: block;
+  opacity: 1;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  animation: fadeInBackgroundImage 1.5s forwards;
+} */
