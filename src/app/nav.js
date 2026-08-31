@@ -45,7 +45,7 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                    <a className="nav-link ps-5" aria-current="page" href="/">Home</a>
+                    <Link className="nav-link ps-5" aria-current="page" href="/">Home</Link>
                 </li>
                 <li className="nav-item dropdown dropdown-menu-dark has-megamenu">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +74,7 @@ const Nav = () => {
                     </div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/contact-us">Contact Us</a>
+                    <Link className="nav-link" href="/contact-us">Contact Us</Link>
                 </li>
 
             </ul>

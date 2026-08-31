@@ -9,20 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@formspree/react": "^2.5.1",
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@formspree/react": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^3.5.0",
+    "@stripe/react-stripe-js": "^6.8.2",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "next": "^14.2.23",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-waypoint": "^10.3.0",
+    "next": "^15.5.25",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "sass": "^1.77.5"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "^15.5.25"
   }
 }
