@@ -248,13 +248,13 @@ export default function Home() {
             <div className="row justify-content-end">
               <div className="herobg ratio">
                 <div className="p-5 full-height crunch justify-content-center align-items-center d-flex flex-column col-xl-12 col-sm-12 col-md-12">
-                  <h1 className="mx-5 text-primary fade-in text-center">
+                  {/* <h1 className="mx-5 text-primary fade-in text-center">
                     Transform your business
-                  </h1>
+                  </h1> */}
                   <div className="mx-5">
-                    <h4 className="fade-in text-white">
+                    {/* <h4 className="fade-in text-white">
                       beat the competition with cutting-edge solutions
-                    </h4>
+                    </h4> */}
                   </div>
                 </div>
               </div>
