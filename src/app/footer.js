@@ -43,7 +43,7 @@ const Footer = () => {
                     <p className="text-center my-5">&copy; 2024 Watson Consortia, LLC. All rights reserved.</p>
                   </div>
                   <div className="row justify-content-center mb-5">
-                    <img className="footer-logo" src="./assets/logo.svg" alt="Watson Consortia" />
+                    <img className="footer-logo" src="/assets/logo.svg" alt="Watson Consortia" />
                   </div>
                 </div>
                 </div>

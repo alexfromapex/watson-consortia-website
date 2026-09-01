@@ -44,6 +44,21 @@
   height: 100%;
 }
 
+/* Video: no opacity transition needed, just sits there at full opacity */
+.hero-video {
+    background-color: #000;        /* safety: no gray if first frame is missing */
+    /* opacity: 1; ← default, no fade */
+}
+
+/* Skeleton: still fades out on top of the already-visible video */
+.skel-hero {
+    transition: opacity 0.7s ease;
+    will-change: opacity;
+}
+.skel-hero.is-hidden {
+    opacity: 0;
+}
+
 /* Our Expertise */
 .conditional-flexing {
   flex-direction: row !important;
@@ -60,6 +75,22 @@
   font-size: 20px;
 }
 
+/* ── Large screens: constrain the video, keep the background full-bleed ── */
+@media (min-width: 1200px) {
+  .hero-video {
+    max-width: min(2200px, 85vw);
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;            /* let aspect-ratio derive the height */
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+}
+
 @media (max-width: 992px) {
   .approach {
     padding-left: 0 !important;
@@ -73,12 +104,6 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .herobg {
-    --bs-aspect-ratio: 56.25%;
-  }
-}
-
 @media (max-width: 1368px) {
   .conditional-flexing {
     flex-direction: column !important;
@@ -86,13 +111,13 @@
 }
 
 /* Remove the 16:9 lock on mobile so min-height:100vh can win */
-@media (max-width: 768px) {
-  .herobg {
-    --bs-aspect-ratio: auto;
-  }
-  .herobg-video {
-    object-fit: contain;   /* was: background-size: contain */
-  }
+@media (max-width: 1199px) {
+   .herobg {
+    --bs-aspect-ratio: auto;       /* free the container height */
+   }
+   .herobg-video {
+    object-fit: contain;           /* fit the video inside; no side crop */
+   }
 }
 
 /* ── Loading / skeleton placeholder cards ─────────────────────────── */

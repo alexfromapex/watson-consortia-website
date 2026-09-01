@@ -18,6 +18,7 @@ const FADE_MS = 700; // must match the CSS transition duration above
 function HeroVideo() {
   const videoRef = useRef(null);
   const [canPlay, setCanPlay] = useState(false); // video has enough data
+  const [sourceFailed, setSourceFailed] = useState(false);
   const [fading, setFading] = useState(false);   // cross-fade in progress
   const [hideSkeleton, setHideSkeleton] = useState(false);
 
@@ -40,30 +41,42 @@ function HeroVideo() {
     return () => { cancelAnimationFrame(raf); clearTimeout(t); };
   }, [canPlay]);
 
+  useEffect(() => {
+    if (!canPlay || sourceFailed) return;
+
+    // No need to fade the video in — it's already at full opacity behind the skeleton.
+    // Just start playback and fade the skeleton out.
+    videoRef.current?.play().catch(() => {});
+    const raf = requestAnimationFrame(() => setFading(true));
+    const t = setTimeout(() => setHideSkeleton(true), FADE_MS);
+
+    return () => { cancelAnimationFrame(raf); clearTimeout(t); };
+  }, [canPlay, sourceFailed]);
+
   return (
     <div className="herobg ratio">
-      {/* Skeleton and video are both mounted so they can cross-fade */}
-      {!hideSkeleton && (
-        <div
-          className={"skel skel-hero herobg-video hero-skeleton" + (fading ? " is-hidden" : "")}
-          aria-hidden="true"
-        />
-      )}
+      {/* Video is FIRST → lower stacking order (behind) */}
       <video
         ref={videoRef}
         className={`herobg-video hero-video${fading ? " is-visible" : ""}`}
         muted
         playsInline
         autoPlay
-        poster="/assets/hero-poster.jpg"       // static frame while buffering
+        poster="/assets/hero-poster.jpg"
         onCanPlay={() => setCanPlay(true)}
-        onError={() => setSourceFailed(true)}  // keep skeleton if all fail
+        onError={() => setSourceFailed(true)}
       >
-        {/* Safari / iOS picks this */}
         <source src="/assets/hero.mp4"  type="video/mp4; codecs=avc1.42E01E" />
-        {/* Chromium / Firefox pick this — smaller file */}
         <source src="/assets/hero.webm" type="video/webm; codecs=vp9, opus" />
       </video>
+
+      {/* Skeleton is SECOND → higher stacking order (on top) */}
+      {!hideSkeleton && (
+        <div
+          className={`skel skel-hero herobg-video hero-skeleton${fading ? " is-hidden" : ""}`}
+          aria-hidden="true"
+        />
+      )}
     </div>
   );
 }
