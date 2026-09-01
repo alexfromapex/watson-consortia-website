@@ -52,9 +52,9 @@ const Nav = () => {
                     Services
                     </a>
                     <div className="dropdown-menu dropdown-menu-dark ps-2 pe-5 megamenu" aria-labelledby="navbarDropdown">
+                        <Link className="dropdown-item" href="/ai-ml">AI &amp; Machine Learning</Link>
                         <Link className="dropdown-item" href="/big-data">Big Data</Link>
                         <Link className="dropdown-item" href="/software">Software Engineering</Link>
-                        <Link className="dropdown-item" href="/ai-ml">AI &amp; Machine Learning</Link>
                             {/* <Link className="dropdown-item nav-link" href="/cinema-vfx">Cinema &amp; VFX</Link>
                             <Link className="dropdown-item nav-link" href="/construction">Construction &amp; Contracting</Link> */}
                     </div>

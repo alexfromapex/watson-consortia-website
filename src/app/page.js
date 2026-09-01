@@ -304,6 +304,18 @@ const OurExpertise = () => (
     <div className="d-flex conditional-flexing justify-content-between gap-3">
       <ExpertiseCard
         icon={
+          <FontAwesomeIcon
+            icon={faMicrochip}
+            size="6x"
+            style={{ color: "var(--bs-primary)", flexShrink: "" }}
+          />
+        }
+        title="AI & Machine Learning"
+        description="Leverage cutting-edge AI and ML technologies to drive innovation and automate processes."
+        link="/ai-ml"
+      />
+      <ExpertiseCard
+        icon={
           <FontAwesomeIcon icon={faDatabase} size="6x" style={{ color: "var(--bs-primary)" }} />
         }
         title="Big Data"
@@ -318,18 +330,6 @@ const OurExpertise = () => (
         description="Build robust, scalable, and efficient software systems tailored to your business needs."
         reverse
         link="/software"
-      />
-      <ExpertiseCard
-        icon={
-          <FontAwesomeIcon
-            icon={faMicrochip}
-            size="6x"
-            style={{ color: "var(--bs-primary)", flexShrink: "" }}
-          />
-        }
-        title="AI & Machine Learning"
-        description="Leverage cutting-edge AI and ML technologies to drive innovation and automate processes."
-        link="/ai-ml"
       />
     </div>
   </>
