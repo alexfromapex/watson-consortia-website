@@ -62,7 +62,6 @@ function HeroVideo() {
         muted
         playsInline
         autoPlay
-        poster="/assets/hero-poster.jpg"
         onCanPlay={() => setCanPlay(true)}
         onError={() => setSourceFailed(true)}
       >
@@ -444,7 +443,7 @@ export default function Home() {
         <div className="container align-items-center px-5 pb-5 justify-content-center">
           <LazySection
             offset="-50%"
-            minTime={1000}
+            minTime={500}
             className="col-xs-12 col-md-12 col-lg-12 col-xl-10 mx-auto big-margins"
             skeleton={<ProfessionalServicesSkeleton />}
           >
@@ -453,7 +452,7 @@ export default function Home() {
 
           <LazySection
             offset="-50%"
-            minTime={1000}
+            minTime={700}
             className="col-xs-12 col-md-12 col-lg-12 col-xl-10 big-margins mx-auto"
             skeleton={<OurExpertiseSkeleton />}
           >
@@ -462,7 +461,7 @@ export default function Home() {
 
           <LazySection
             offset="-50%"
-            minTime={1000}
+            minTime={700}
             className="col-xs-12 col-md-12 col-lg-12 col-xl-10 big-margins mx-auto"
             skeleton={<WhyChooseUsSkeleton />}
           >
@@ -471,7 +470,7 @@ export default function Home() {
 
           <LazySection
             offset="-50%"
-            minTime={1000}
+            minTime={700}
             className="col-xs-12 col-md-12 col-lg-12 col-xl-10 big-margins mx-auto pb-5"
             skeleton={<OurApproachSkeleton />}
           >
@@ -480,7 +479,7 @@ export default function Home() {
 
           <LazySection
             offset="-60%"
-            minTime={1000}
+            minTime={500}
             className="col-xs-12 col-md-12 col-lg-12 col-xl-10 d-flex flex-row flex-wrap container big-margins mb-3 mx-auto mt-5 pb-5 align-items-center"
             skeleton={<NeedHelpSkeleton />}
           >

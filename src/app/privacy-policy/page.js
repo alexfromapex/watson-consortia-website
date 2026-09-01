@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import './privacy-policy.css';
 
 const PrivacyPolicy = () => {
@@ -34,7 +35,9 @@ const PrivacyPolicy = () => {
                 Watson Consortia, LLC<br />
                 1391 Kildaire Farm Rd #1041<br />
                 Cary, NC 27511<br />
-                Website: www.watsonconsortia.com
+                Website: www.watsonconsortia.com<br/>
+                E-mail: <Link href="mailto:support@watsonconsortia.com">support@watsonconsortia.com</Link><br/>
+                Web Form: <Link href="/contact-us">Contact</Link>
             </p>
             </div>
         </div>
