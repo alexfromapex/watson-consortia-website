@@ -51,12 +51,18 @@ function HeroVideo() {
       )}
       <video
         ref={videoRef}
-        className={"herobg-video hero-video" + (fading ? " is-visible" : "")}
+        className={`herobg-video hero-video${fading ? " is-visible" : ""}`}
         muted
         playsInline
+        autoPlay
+        poster="/assets/hero-poster.jpg"       // static frame while buffering
         onCanPlay={() => setCanPlay(true)}
+        onError={() => setSourceFailed(true)}  // keep skeleton if all fail
       >
-        <source src="/assets/hero.webm" type="video/webm" />
+        {/* Safari / iOS picks this */}
+        <source src="/assets/hero.mp4"  type="video/mp4; codecs=avc1.42E01E" />
+        {/* Chromium / Firefox pick this — smaller file */}
+        <source src="/assets/hero.webm" type="video/webm; codecs=vp9, opus" />
       </video>
     </div>
   );
