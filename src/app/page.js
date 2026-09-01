@@ -54,7 +54,6 @@ function HeroVideo() {
         className={"herobg-video hero-video" + (fading ? " is-visible" : "")}
         muted
         playsInline
-        poster="/assets/hero.png"
         onCanPlay={() => setCanPlay(true)}
       >
         <source src="/assets/hero.webm" type="video/webm" />
