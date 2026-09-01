@@ -1,13 +1,12 @@
-
 /* #3e11ba, #250c7d */
 .hero {
   color: #FFF;
-  background-image: linear-gradient(#000,#794eef);
+  background-image: linear-gradient(#000, #794eef);
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
   max-width: 100%;
-  padding:0;
+  padding: 0;
   min-height: 50vh;
 }
 
@@ -18,21 +17,30 @@
 
 /* Hero background */
 .herobg {
-  /* object-fit: contain; */
   position: relative;
   overflow: hidden;
   max-height: 100vh;
   padding: 0;
   max-width: 100%;
   min-height: 100vh;
-  background-image: url("/assets/hero.png");
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
   background-color: #000;
+  /* background-image: url("/assets/hero.png");  ← removed: video now fills this */
 }
 
+/* Hero video background */
+.herobg-video {
+  position: absolute;
+  inset: 0;              /* top/right/bottom/left = 0 */
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* use "contain" to keep the old letterbox look */
+}
+
+/* Content overlay must sit above the video */
 .herobg .full-height {
+  position: relative;
+  z-index: 1;
   height: 100%;
 }
 
@@ -70,12 +78,6 @@
     --bs-aspect-ratio: 56.25%;
   }
 }
-/* @media (max-width: 1000px) and (min-width: 768px) {
-  .herobg .crunch h1, .herobg .crunch h4 {
-    max-width: 50vw;
-    margin: auto auto;
-  }
-} */
 
 @media (max-width: 1368px) {
   .conditional-flexing {
@@ -87,24 +89,155 @@
 @media (max-width: 768px) {
   .herobg {
     --bs-aspect-ratio: auto;
-    background-size: contain;   /* or cover */
+  }
+  .herobg-video {
+    object-fit: contain;   /* was: background-size: contain */
   }
 }
 
+/* ── Loading / skeleton placeholder cards ─────────────────────────── */
+@keyframes skel-shimmer {
+  100% { transform: translateX(100%); }
+}
+@keyframes skel-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.6; }
+}
 
-/* Video background */
-
-/* .videobg {
+/* Base block — neutral gray that shows on white AND black */
+.skel {
   position: relative;
   overflow: hidden;
-  max-width: 100%;
-  max-height: 50vh;
-  padding: 0;
-  min-height: 100%;
+  background-color: #808080;
+  border-radius: 6px;
+  animation: skel-pulse 1.6s ease-in-out infinite;
 }
-.videobg video {
-  z-index: 0;
-  max-width: 100%;
-  min-width: 100%;
+
+/* Moving highlight rides over the base */
+.skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  animation: skel-shimmer 1.6s infinite;
+}
+
+/* ── Hero skeleton: black base with animated purple waves ───────── */
+.skel-hero {
+  background-color: #000;            /* black base */
+  border-radius: 0;
+  height: 100%;
   min-height: 100%;
-} */
+  overflow: hidden;                  /* clips the waves to the hero box */
+  animation: none;                   /* drop the gray skel-pulse */
+  transition: opacity 0.7s ease;     /* fade out when the video is ready */
+  will-change: opacity;
+}
+
+/* Kill the shimmer .skel adds, and repurpose both pseudo-elements as waves */
+.skel-hero::before,
+.skel-hero::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -50%;
+  right: -50%;
+  bottom: auto;
+  height: 140%;
+  pointer-events: none;
+  filter: blur(60px);
+  mix-blend-mode: screen;           /* purple glows read cleanly on black */
+}
+
+/* primary wave — brand #794eef */
+.skel-hero::before {
+  background:
+    radial-gradient(60% 60% at 30% 60%, rgba(121, 78, 239, 0.55),
+      rgba(37, 12, 125, 0.15) 55%, transparent 75%),
+    radial-gradient(50% 50% at 80% 40%, rgba(121, 78, 239, 0.45), transparent 70%);
+  animation: wave-drift-a 9s ease-in-out infinite;
+}
+
+/* secondary wave — #3e11ba, moving the opposite way */
+.skel-hero::after {
+  top: -30%;
+  background:
+    radial-gradient(70% 70% at 70% 70%, rgba(62, 17, 186, 0.55),
+      rgba(121, 78, 239, 0.15) 50%, transparent 72%);
+  animation: wave-drift-b 12s ease-in-out infinite;
+}
+
+@keyframes wave-drift-a {
+  0%, 100% { transform: translate3d(-10%, 0, 0) scale(1); }
+  50%      { transform: translate3d(12%, -6%, 0) scale(1.15); }
+}
+@keyframes wave-drift-b {
+  0%, 100% { transform: translate3d(10%, 0, 0) scale(1.1); }
+  50%      { transform: translate3d(-12%, 6%, 0) scale(1); }
+}
+
+/* ── skeleton ⇆ video cross-fade ────────────────────────────────── */
+.hero-video {
+  opacity: 0;                       /* hidden until it can play */
+  transition: opacity 0.7s ease;    /* fade IN */
+  will-change: opacity;
+}
+.hero-video.is-visible { opacity: 1; }
+
+/* skeleton (keeps .skel-hero's transition) fades OUT on the same 0.7s */
+.skel-hero.is-hidden { opacity: 0; }
+
+/* Sizing so the gray card mimics the real ExpertiseCard layout */
+.sk-title      { height: 1.5rem;  width: 60%; margin-bottom: 1rem; }
+.sk-icon       { width: 96px;     height: 96px; border-radius: 50%; flex-shrink: 0; }
+.sk-line       { height: 0.75rem; width: 100%; }
+.sk-line-short { height: 0.75rem; width: 55%; }
+.sk-btn        { height: 2.5rem;  width: 120px; }
+
+/* ── Section-level skeleton shapes ────────────────────────────────── */
+
+/* ProfessionalServices: big heading + paragraph block */
+.sk-h1         { height: 2.5rem;  width: 80%; margin-bottom: 1.5rem; }
+.sk-para       { height: 0.75rem; width: 100%; margin-bottom: 0.5rem; }
+.sk-para-short { height: 0.75rem; width: 65%; }
+
+/* WhyChooseUs: bullet + text rows */
+.sk-list-row  { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.sk-bullet    { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.sk-list-line { height: 0.75rem; flex: 1; }
+
+/* OurApproach: icon circles + arrow squares */
+.sk-approach-circle { width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; }
+.sk-approach-arrow  { width: 20px; height: 20px; border-radius: 4px;  flex-shrink: 0; }
+
+/* NeedHelp: image block + heading + CTA */
+.sk-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+}
+.sk-h3      { height: 1.75rem; width: 70%; margin-bottom: 1rem; }
+.sk-cta-btn { height: 2.75rem; width: 180px; margin: 0 auto; }
+
+/* ── Skeleton → content transition ─────────────────────────────── */
+@keyframes lazy-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lazy-content {
+  animation: lazy-fade-in 0.45s ease forwards;
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .skel, .skel::after, .lazy-content { animation: none; }
+  .skel-hero::before, .skel-hero::after { animation: none; }
+  .hero-video, .skel-hero { transition: none; }
+}
