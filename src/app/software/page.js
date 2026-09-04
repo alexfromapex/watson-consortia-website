@@ -3,22 +3,10 @@ import "./software.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchway, faBolt, faBrain, faCode, faCloud, faSync, faDatabase, faUsers, faShield } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+// import { useLayoutEffect } from 'react';
+// import { usePathname } from 'next/navigation';
 
 export default function Software() {
-
-  const path = usePathname();
-
-  useEffect(() => {
-    if (path.includes('software')) {
-      document.documentElement.style.setProperty('--hero-before-bg', 'url("/assets/software_img.svg")');
-    } else {
-      document.documentElement.style.setProperty('--hero-before-bg', '');
-    }
-
-    return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-  }, [path]);
 
   const TechnologyCard = ({ icon, title, description }) => (
     <div className="col-md-6 col-lg-3">
@@ -64,10 +52,10 @@ export default function Software() {
   return (
     <>
       <title>Software Engineering - Watson Consortia</title>
-      <main className="main" key={path}>
+      <main className="main">
         <div className="container-fluid">
           <div className="row pb-3">
-            <div className="row hero align-items-center justify-content-end">
+            <div className="row hero software align-items-center justify-content-end">
               <h1 className="col-xl-6 fade-in-right">Building Robust, Scalable, and Efficient Software Systems</h1>
             </div>
           </div>

@@ -23,8 +23,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <App inter={inter}>          {/* ← note the JSX prop syntax */}
-      <PageFade>{children}</PageFade>   {/* ← wrap children */}
+    <App inter={inter}>
+      <PageFade>{children}</PageFade>
     </App>
   );
 }

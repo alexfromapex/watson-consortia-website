@@ -19,9 +19,10 @@ const Footer = () => {
                 <div className="col-xl-3">
                   <ul className="nav flex-column">
                     <li className="nav-item"><h5>Services</h5></li>
+                    <li className="nav-item"><Link className="nav-link px-0" href="/3d-modeling">3D Modeling</Link></li>
+                    <li className="nav-item"><Link className="nav-link px-0" href="/ai-ml">AI &amp; Machine Learning</Link></li>
                     <li className="nav-item"><Link className="nav-link px-0" href="/big-data">Big Data</Link></li>
                     <li className="nav-item"><Link className="nav-link px-0" href="/software">Software Engineering</Link></li>
-                    <li className="nav-item"><Link className="nav-link px-0" href="/ai-ml">AI &amp; Machine Learning</Link></li>
                     {/* <li className="nav-item"><Link href="/cinema-vfx" className="nav-link px-2">Cinema</Link></li>
                     <li className="nav-item"><Link href="/construction" className="nav-link px-2">Construction</Link></li> */}
                   </ul>

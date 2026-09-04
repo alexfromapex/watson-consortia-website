@@ -2,31 +2,21 @@
 import "./big-data.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faCloud, faBolt, faChevronRight, faCompass, faLayerGroup, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+// import { useLayoutEffect } from 'react';
+// import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 export default function BigData() {
 
-  const path = usePathname();
-
-  useEffect(() => {
-    if (path.includes('big-data')) {
-      document.documentElement.style.setProperty('--hero-before-bg', 'url("/assets/big_data_img.svg")');
-     } else {
-      document.documentElement.style.setProperty('--hero-before-bg', '');
-     }
-
-    return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-   }, [path]);
+  // const path = usePathname();
 
   return (
      <>
        <title>Big Data - Watson Consortia</title>
-       <main className="main" key={path}>
+       <main className="main">
          <div className="container-fluid mx-0 px-0">
            <div className="row pb-3 pr-3">
-             <div className="hero row align-items-center justify-content-end px-5">
+             <div className="hero big-data row align-items-center justify-content-end px-5">
                <h1 className="p-3 col-xl-6 fade-in-right">Transforming Big Data Challenges into Opportunities</h1>
              </div>
            </div>

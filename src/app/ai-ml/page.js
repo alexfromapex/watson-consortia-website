@@ -3,22 +3,9 @@ import "./aiml.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrain, faBolt, faChartLine, faDatabase, faCode, faShare } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { useEffect } from'react';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 export default function AIML() {
-
-  const path = usePathname();
-
-  useEffect(() => {
-    if (path.includes('ai-ml')) {
-      document.documentElement.style.setProperty('--hero-before-bg', 'url("/assets/AI_img.svg")');
-    } else {
-      document.documentElement.style.setProperty('--hero-before-bg', '');
-    }
-
-    return () => document.documentElement.style.setProperty('--hero-before-bg', '');
-  }, [path]);
 
   const ExpertiseCard = ({ icon, title, description }) => (
     <div className="col-md-6 col-lg-3 mb-4">
@@ -55,11 +42,11 @@ export default function AIML() {
   return (
     <>
       <title>AI &amp; Machine Learning - Watson Consortia</title>
-      <main className="main" key={path}>
+      <main className="main">
         <div className="container-fluid">
           <div className="row pb-3">
-            <div className="row hero align-items-center justify-content-end">
-              <h1 className="col-xl-6 fade-in-right">Empowering Your Business with Cutting-Edge AI Technologies</h1>
+            <div className="row hero aiml align-items-center justify-content-end">
+              <h1 className="col-xl-6 fade-in-right px-5">Empowering Your Business with Cutting-Edge AI Technologies</h1>
             </div>
           </div>
         </div>

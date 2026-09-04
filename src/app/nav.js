@@ -52,6 +52,7 @@ const Nav = () => {
                     Services
                     </a>
                     <div className="dropdown-menu dropdown-menu-dark ps-2 pe-5 megamenu" aria-labelledby="navbarDropdown">
+                        <Link className="dropdown-item" href="/3d-modeling">3D Modeling</Link>
                         <Link className="dropdown-item" href="/ai-ml">AI &amp; Machine Learning</Link>
                         <Link className="dropdown-item" href="/big-data">Big Data</Link>
                         <Link className="dropdown-item" href="/software">Software Engineering</Link>
@@ -64,7 +65,7 @@ const Nav = () => {
                     Industries
                     </a>
                     <div className="dropdown-menu dropdown-menu-dark ps-2 pe-5" aria-labelledby="navbarDropdown">
-                        <Link className="dropdown-item" href="/3d-modeling">3D Printing &amp; Modeling</Link>
+                        <Link className="dropdown-item" href="/3d-modeling">3D Services</Link>
                         <Link className="dropdown-item" href="/ai-ml">Construction</Link>
                         <Link className="dropdown-item" href="/big-data">Healthcare</Link>
                         <Link className="dropdown-item" href="/software">Finance</Link>
