@@ -12,6 +12,7 @@ import {
   faStar,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function ThreeDModeling() {
 
@@ -150,7 +151,9 @@ export default function ThreeDModeling() {
                 real-time game engines can bring your vision to life. Contact us today
                 to schedule a consultation.
               </p>
-              <button className="btn btn-primary btn-lg">Get Started</button>
+              <Link href="/contact-us">
+                <button className="btn btn-primary btn-lg">Get Started</button>
+              </Link>
             </section>
           </main>
         </div>
