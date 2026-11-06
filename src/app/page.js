@@ -13,7 +13,7 @@ const PROOF = [
     text: "Distributed and in-memory architectures built for real-time analytics.",
   },
   {
-    title: "Clinical trials",
+    title: "Complex data",
     text: "AI-driven data mining for clinical trials and other complex domains.",
   },
 ];
