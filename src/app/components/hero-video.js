@@ -40,7 +40,6 @@ export default function HeroVideo() {
         className="wc-hero__video"
         poster="/assets/hero-poster.jpg"
         muted
-        loop
         playsInline
         preload="auto"
         tabIndex={-1}
