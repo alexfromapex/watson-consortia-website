@@ -35,6 +35,16 @@ const PATHS = {
       <circle className="wc-icon__node" cx="12" cy="12" r="1.7" />
     </>
   ),
+  "fabrication": (
+    <>
+      <path d="M4 20.5h16" />
+      <path d="M5 6h14" />
+      <rect x="9.5" y="6" width="5" height="4.2" rx="1.2" />
+      <path d="M12 10.2v2" />
+      <path d="M7 20.5v-4.5h10v4.5" />
+      <circle className="wc-icon__node" cx="12" cy="14.2" r="1.2" />
+    </>
+  ),
   "healthcare": (
     <>
       <path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z" />

@@ -160,6 +160,12 @@
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
+/* An odd number of tiles leaves the last one alone in its row: let it span the full width. */
+.wc-services > .wc-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (min-width: 1100px) {
+  .wc-services > .wc-tile:last-child:nth-child(odd) { min-height: 320px; }
+}
+
 .wc-tile:hover { background: var(--wc-tile-hover); color: var(--wc-ink); }
 .wc-tile > .wc-icon, .wc-tile__body { position: relative; }
 

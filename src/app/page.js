@@ -39,9 +39,15 @@ const SERVICES = [
   },
   {
     icon: "3d-modeling",
-    title: "3D Modeling",
-    text: "Open-source pipelines for modeling, simulation, visual effects, and real-time engines, with no per-seat licensing.",
-    href: "/3d-modeling",
+    title: "3D Assets & VFX",
+    text: "Cinematography with composited visual effects for film and games, plus game-ready and film-quality 3D assets, built on open-source tools.",
+    href: "/3d-vfx",
+  },
+  {
+    icon: "fabrication",
+    title: "Prototyping & Fabrication",
+    text: "In-house 3D printing and CNC for small-scale prototypes, custom STL models built to your specifications, and practical fabrication consulting.",
+    href: "/fabrication",
   },
 ];
 
@@ -123,7 +129,7 @@ export default function Home() {
             <div className="wc-section__head">
               <p className="wc-eyebrow">Services</p>
               <h2 className="wc-section__title" id="services-title">
-                Four disciplines. One engineering standard.
+                Five disciplines. One engineering standard.
               </h2>
               <p className="wc-section__lede">
                 From architecture through deployment and monitoring, every engagement is

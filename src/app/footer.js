@@ -6,7 +6,8 @@ const COLUMNS = [
   {
     title: "Services",
     links: [
-      { href: "/3d-modeling", label: "3D Modeling" },
+      { href: "/3d-vfx", label: "3D Assets & VFX" },
+      { href: "/fabrication", label: "Prototyping & Fabrication" },
       { href: "/ai-ml", label: "AI & Machine Learning" },
       { href: "/big-data", label: "Big Data" },
       { href: "/software", label: "Software Engineering" },

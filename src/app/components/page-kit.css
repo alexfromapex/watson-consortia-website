@@ -66,6 +66,8 @@
 }
 .wc-page-hero__art--lines { filter: brightness(1.7) saturate(1.1); }
 .wc-page-hero__art--photo { object-position: 60% 50%; opacity: 0.75; }
+/* Dark x-ray style renders (deep blue on black): lift brightness so they read against the night hero */
+.wc-page-hero__art--xray { object-position: 50% 50%; opacity: 1; filter: brightness(1.7) saturate(1.1); }
 
 @media (max-width: 760px) {
   .wc-page-hero__art { width: 100%; opacity: 0.3; -webkit-mask-image: none; mask-image: none; }

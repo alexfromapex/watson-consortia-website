@@ -7,7 +7,8 @@ import Link from "next/link";
 import Icon from "./components/icons";
 
 const SERVICES = [
-  { href: "/3d-modeling", icon: "3d-modeling", title: "3D Modeling", text: "Open-source 3D pipelines" },
+  { href: "/3d-vfx", icon: "3d-modeling", title: "3D Assets & VFX", text: "For film and game production" },
+  { href: "/fabrication", icon: "fabrication", title: "Prototyping & Fabrication", text: "3D printing, CNC & custom models" },
   { href: "/ai-ml", icon: "ai-ml", title: "AI & Machine Learning", text: "Models, LLMs, and ML pipelines" },
   { href: "/big-data", icon: "big-data", title: "Big Data", text: "Petabyte-scale platforms" },
   { href: "/software", icon: "software", title: "Software Engineering", text: "Cloud-native, security-first systems" },
