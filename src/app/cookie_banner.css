@@ -1,15 +1,73 @@
-/* Light mode / Dark Mode */
+/* ── Cookie notice (redesign) ──────────────────────────────────────── */
+.wc-cookie {
+  position: fixed;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(560px, calc(100vw - 32px));
+  padding: 20px 24px;
+  transform: translateX(-50%);
+  border: 1px solid var(--wc-line);
+  border-radius: var(--wc-radius-lg);
+  background: var(--wc-card);
+  color: var(--wc-ink);
+  box-shadow: 0 1px 2px rgba(17, 18, 22, 0.04), 0 16px 40px rgba(17, 18, 22, 0.14);
+}
 
-#cb-cookie-banner {
-    @media (prefers-color-scheme: light) {
-        background-color: white;
-        color: black;
-        border-top: 1px solid #FFF;
-    }
+.wc-cookie__row { display: flex; align-items: flex-start; gap: 16px; }
 
-    @media (prefers-color-scheme: dark) {
-        background-color: #000;
-        color: #FFF;
-        border-top: 1px solid #C0C0C0;
-    }
+.wc-cookie__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--wc-tile);
+}
+
+.wc-cookie__text { margin: 0; font-size: 15px; line-height: 1.5; }
+
+.wc-cookie__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding-left: 64px;
+}
+
+.btn.wc-cookie__btn {
+  --bs-btn-bg: var(--wc-ink);
+  --bs-btn-color: var(--wc-card);
+  --bs-btn-border-color: var(--wc-ink);
+  --bs-btn-hover-bg: var(--wc-ink);
+  --bs-btn-hover-color: var(--wc-card);
+  --bs-btn-hover-border-color: var(--wc-ink);
+  --bs-btn-active-bg: var(--wc-ink);
+  --bs-btn-active-color: var(--wc-card);
+  --bs-btn-border-radius: 999px;
+  --bs-btn-padding-x: 1.5rem;
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.wc-cookie__btn:hover { opacity: 0.88; }
+
+.wc-cookie__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--wc-accent-text);
+  text-decoration: none;
+}
+.wc-cookie__link:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .wc-cookie__actions { padding-left: 0; }
 }

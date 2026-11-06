@@ -35,7 +35,10 @@ export const App = ({ inter, children }) => {
     const pathname = usePathname()
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        // Keep in-page links such as /#approach from being reset to the top.
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
     }, [pathname]);
 
     const [darkMode, setDarkMode] = useState("auto");

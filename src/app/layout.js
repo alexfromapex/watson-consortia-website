@@ -5,7 +5,7 @@ import "./globals.css";
 import App from "./home";
 import PageFade from "./components/page-fade";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], axes: ["opsz"] });
 
 export const metadata = {
   icons: {

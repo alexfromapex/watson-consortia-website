@@ -1,59 +1,65 @@
 "use client";
 import "./footer.css";
-import Link from 'next/link';
+import Link from "next/link";
+
+const COLUMNS = [
+  {
+    title: "Services",
+    links: [
+      { href: "/3d-modeling", label: "3D Modeling" },
+      { href: "/ai-ml", label: "AI & Machine Learning" },
+      { href: "/big-data", label: "Big Data" },
+      { href: "/software", label: "Software Engineering" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/contact-us", label: "Contact Us" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [{ href: "/privacy-policy", label: "Privacy Policy" }],
+  },
+];
 
 const Footer = () => {
-    return (
-      <>
-        <footer className="row pt-0 pb-0 mt-4">
-          <div className="footer align-items-center">
-            <div className="container">
-              <div className="row p-5 justify-content-center">
-                <div className="col-xl-3">
-                <ul className="nav flex-column">
-                    <li className="nav-item"><h5>Links</h5></li>
-                    <li className="nav-item"><Link href="/" className="nav-link px-0">Home</Link></li>
-                    <li className="nav-item"><Link href="/privacy-policy" className="nav-link px-0">Privacy Policy</Link></li>
-                  </ul>
-                </div>
-                <div className="col-xl-3">
-                  <ul className="nav flex-column">
-                    <li className="nav-item"><h5>Services</h5></li>
-                    <li className="nav-item"><Link className="nav-link px-0" href="/3d-modeling">3D Modeling</Link></li>
-                    <li className="nav-item"><Link className="nav-link px-0" href="/ai-ml">AI &amp; Machine Learning</Link></li>
-                    <li className="nav-item"><Link className="nav-link px-0" href="/big-data">Big Data</Link></li>
-                    <li className="nav-item"><Link className="nav-link px-0" href="/software">Software Engineering</Link></li>
-                    {/* <li className="nav-item"><Link href="/cinema-vfx" className="nav-link px-2">Cinema</Link></li>
-                    <li className="nav-item"><Link href="/construction" className="nav-link px-2">Construction</Link></li> */}
-                  </ul>
-                </div>
-                <div className="col-xl-3">
-                  <ul className="nav flex-column">
-                    <li className="nav-item"><h5>Company</h5></li>
-                    <li className="nav-item"><Link href="/contact-us" className="nav-link px-0">Contact Us</Link></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+  return (
+    <footer className="wc-footer">
+      <div className="wc-container">
+        <div className="wc-footer__top">
+          <div className="wc-footer__brand">
+            <Link href="/" className="wc-footer__logo-link">
+              <img className="wc-footer__logo wc-footer__logo--light" src="/assets/logo-wordmark.svg" alt="Watson Consortia" width="120" height="32" />
+              <img className="wc-footer__logo wc-footer__logo--dark" src="/assets/logo-wordmark-reversed.svg" alt="Watson Consortia" width="120" height="32" />
+            </Link>
+            <p className="wc-footer__tagline">
+              Software engineering, machine learning, AI, and data engineering consulting.
+            </p>
           </div>
-          <div className="row coda">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-md-2">
-                  <div className="row">
-                    <p className="text-center my-5">&copy; 2024 Watson Consortia, LLC. All rights reserved.</p>
-                  </div>
-                  <div className="row justify-content-center mb-5">
-                    <img className="footer-logo" src="/assets/logo.svg" alt="Watson Consortia" />
-                  </div>
-                </div>
-                </div>
+          <nav className="wc-footer__cols" aria-label="Footer">
+            {COLUMNS.map((col) => (
+              <div key={col.title}>
+                <h2 className="wc-footer__heading">{col.title}</h2>
+                <ul className="wc-footer__list">
+                  {col.links.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="wc-footer__link">{l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-            
-      </footer>
-      </>
-    )
+            ))}
+          </nav>
+        </div>
+        <p className="wc-footer__legal">
+          &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> Watson Consortia, LLC. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

@@ -1,88 +1,113 @@
 "use client";
 import "./nav.css";
 
-import {
-    useEffect,
-    useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Icon from "./components/icons";
 
-import Link from 'next/link';
+const SERVICES = [
+  { href: "/3d-modeling", icon: "3d-modeling", title: "3D Modeling", text: "Open-source 3D pipelines" },
+  { href: "/ai-ml", icon: "ai-ml", title: "AI & Machine Learning", text: "Models, LLMs, and ML pipelines" },
+  { href: "/big-data", icon: "big-data", title: "Big Data", text: "Petabyte-scale platforms" },
+  { href: "/software", icon: "software", title: "Software Engineering", text: "Cloud-native, security-first systems" },
+];
 
 const Nav = () => {
+  const path = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const bootstrapRef = useRef(null);
 
-    const path = usePathname();
+  useEffect(() => {
+    bootstrapRef.current = require("bootstrap/dist/js/bootstrap.bundle.min.js");
 
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    useEffect(() => {
-        require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  // Close the mobile menu after choosing a link.
+  const closeMenu = () => {
+    const menu = document.getElementById("wcNavMenu");
+    if (menu?.classList.contains("show")) {
+      const Collapse = bootstrapRef.current?.Collapse;
+      if (Collapse) Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+    }
+  };
 
-        /* Background on scroll */
-        const handleScroll = () => {
-            const currentPosition = window.scrollY;
-            setScrollPosition(currentPosition);
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    
+  const solid = scrolled || path !== "/";
 
-    }, []);
+  return (
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark fixed-top wc-nav${solid ? " is-solid" : ""}`}
+      aria-label="Primary"
+    >
+      <div className="wc-container wc-nav__inner">
+        <Link href="/" className="navbar-brand wc-nav__brand" onClick={closeMenu}>
+          <img
+            className="wc-nav__logo"
+            src="/assets/logo-wordmark-reversed.svg"
+            alt="Watson Consortia"
+            width="135"
+            height="36"
+          />
+        </Link>
 
-    return (
-        <nav className={`navbar navbar-expand-lg py-3 fixed-top fade-in-top navbar-dark ${scrollPosition > 100 || path !== '/' ? 'nav-scroll-bg' : ''}`}>
-        <div className="container-fluid">
-            <Link href="/">
-                <img className="navbar-logo" src="/assets/logo.svg" alt="Watson Consortia" />
-            </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+        <button
+          className="navbar-toggler wc-nav__toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wcNavMenu"
+          aria-controls="wcNavMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                    <Link className="nav-link ps-5" aria-current="page" href="/">Home</Link>
-                </li>
-                <li className="nav-item dropdown dropdown-menu-dark has-megamenu">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Services
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-dark ps-2 pe-5 megamenu" aria-labelledby="navbarDropdown">
-                        <Link className="dropdown-item" href="/3d-modeling">3D Modeling</Link>
-                        <Link className="dropdown-item" href="/ai-ml">AI &amp; Machine Learning</Link>
-                        <Link className="dropdown-item" href="/big-data">Big Data</Link>
-                        <Link className="dropdown-item" href="/software">Software Engineering</Link>
-                            {/* <Link className="dropdown-item nav-link" href="/cinema-vfx">Cinema &amp; VFX</Link>
-                            <Link className="dropdown-item nav-link" href="/construction">Construction &amp; Contracting</Link> */}
-                    </div>
-                </li>
-                <li className="nav-item dropdown dropdown-menu-dark d-none">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Industries
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-dark ps-2 pe-5" aria-labelledby="navbarDropdown">
-                        <Link className="dropdown-item" href="/3d-modeling">3D Services</Link>
-                        <Link className="dropdown-item" href="/ai-ml">Construction</Link>
-                        <Link className="dropdown-item" href="/big-data">Healthcare</Link>
-                        <Link className="dropdown-item" href="/software">Finance</Link>
-                        <Link className="dropdown-item" href="/ai-ml">Life Sciences</Link>
-                            {/* <Link className="dropdown-item nav-link" href="/cinema-vfx">Cinema &amp; VFX</Link>
-                            <Link className="dropdown-item nav-link" href="/construction">Construction &amp; Contracting</Link> */}
-                    </div>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" href="/contact-us">Contact Us</Link>
-                </li>
 
-            </ul>
+        <div className="collapse navbar-collapse wc-nav__menu" id="wcNavMenu">
+          <ul className="navbar-nav wc-nav__links">
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle wc-nav__link"
+                href="#"
+                id="wcServicesMenu"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <div className="dropdown-menu wc-menu" aria-labelledby="wcServicesMenu">
+                <p className="wc-menu__label">Services</p>
+                {SERVICES.map((s) => (
+                  <Link key={s.href} className="dropdown-item wc-menu__item" href={s.href} onClick={closeMenu}>
+                    <span className="wc-menu__icon">
+                      <Icon name={s.icon} size={24} />
+                    </span>
+                    <span>
+                      <span className="wc-menu__title">{s.title}</span>
+                      <span className="wc-menu__text">{s.text}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link wc-nav__link" href="/#approach" onClick={closeMenu}>Approach</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link wc-nav__link" href="/#industries" onClick={closeMenu}>Industries</Link>
+            </li>
+          </ul>
+          <Link href="/contact-us" className="btn btn-primary wc-btn wc-btn--sm wc-nav__cta" onClick={closeMenu}>
+            Contact us
+          </Link>
         </div>
-        </div>
-        </nav>
-    );
+      </div>
+    </nav>
+  );
 };
 
 export default Nav;

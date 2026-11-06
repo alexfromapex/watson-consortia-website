@@ -1,268 +1,305 @@
-/* #3e11ba, #250c7d */
-.hero {
-  color: #FFF;
-  background-image: linear-gradient(#000, #794eef);
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  max-width: 100%;
-  padding: 0;
-  min-height: 50vh;
+/* ── Homepage (redesign) ──────────────────────────────────────────────
+ * Tokens live in globals.css (--wc-*). Every class here is wc- prefixed
+ * so nothing collides with the service pages, which can keep this file
+ * loaded after client-side navigation.
+ */
+
+.wc-home {
+  background: var(--wc-page);
+  color: var(--wc-ink);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
-.hero img {
-  max-height: 40vh;
-  width: auto;
-}
+.wc-home section[id] { scroll-margin-top: var(--wc-nav-h); }
 
-/* Hero background */
-.herobg {
-  position: relative;
-  overflow: hidden;
-  max-height: 100vh;
-  padding: 0;
-  max-width: 100%;
-  min-height: 100vh;
-  background-color: #000;
-  /* background-image: url("/assets/hero.png");  ← removed: video now fills this */
-}
+.wc-home h1, .wc-home h2, .wc-home h3, .wc-home p { margin: 0; }
+.wc-home ul { list-style: none; margin: 0; padding: 0; }
 
-/* Hero video background */
-.herobg-video {
-  position: absolute;
-  inset: 0;              /* top/right/bottom/left = 0 */
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* use "contain" to keep the old letterbox look */
-}
-
-/* Content overlay must sit above the video */
-.herobg .full-height {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-}
-
-/* Video: no opacity transition needed, just sits there at full opacity */
-.hero-video {
-    background-color: #000;        /* safety: no gray if first frame is missing */
-    /* opacity: 1; ← default, no fade */
-}
-
-/* Skeleton: still fades out on top of the already-visible video */
-.skel-hero {
-    transition: opacity 0.7s ease;
-    will-change: opacity;
-}
-.skel-hero.is-hidden {
-    opacity: 0;
-}
-
-/* Our Expertise */
-.conditional-flexing {
-  flex-direction: row !important;
-}
-.conditional-flexing .card {
-  flex-direction: column !important;
-}
-
-/* Our Approach */
-.approach svg {
-  font-size: 60px;
-}
-.approach svg.fa-arrow-right {
-  font-size: 20px;
-}
-
-/* ── Large screens: constrain the video, keep the background full-bleed ── */
-@media (min-width: 1200px) {
-  .hero-video {
-    max-width: min(2200px, 85vw);
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    height: auto;            /* let aspect-ratio derive the height */
-    top: 50%;
-    bottom: auto;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-  }
-}
-
-@media (max-width: 992px) {
-  .approach {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .approach svg {
-    font-size: 40px;
-  }
-  .approach svg.fa-arrow-right {
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 1368px) {
-  .conditional-flexing {
-    flex-direction: column !important;
-  }
-}
-
-/* Remove the 16:9 lock on mobile so min-height:100vh can win */
-@media (max-width: 1199px) {
-   .herobg {
-    --bs-aspect-ratio: auto;       /* free the container height */
-   }
-   .herobg-video {
-    object-fit: contain;           /* fit the video inside; no side crop */
-   }
-}
-
-/* ── Loading / skeleton placeholder cards ─────────────────────────── */
-@keyframes skel-shimmer {
-  100% { transform: translateX(100%); }
-}
-@keyframes skel-pulse {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.6; }
-}
-
-/* Base block — neutral gray that shows on white AND black */
-.skel {
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.wc-hero {
   position: relative;
   overflow: hidden;
-  background-color: #808080;
-  border-radius: 6px;
-  animation: skel-pulse 1.6s ease-in-out infinite;
+  padding-top: var(--wc-nav-h);
 }
 
-/* Moving highlight rides over the base */
-.skel::after {
-  content: "";
+.wc-hero__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(64px, 9vw, 120px);
+}
+
+.wc-hero__intro .wc-eyebrow { margin-bottom: 28px; }
+
+.wc-hero__title {
+  max-width: 1000px;
+  font-size: clamp(44px, 6.6vw, 92px);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--wc-night-ink);
+  text-wrap: balance;
+}
+
+.wc-hero__lede {
+  margin-top: 32px !important;
+  max-width: 620px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.5;
+  color: var(--wc-night-body);
+  text-wrap: pretty;
+}
+
+.wc-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 32px;
+  margin-top: 44px;
+}
+
+
+/* Video band: screen-blended so the video's black disappears into the
+ * hero, faded top and bottom, cropped below the area where the current
+ * render has burned-in text (object-position 76%). Once the video is
+ * re-rendered without text, 60% centres the wave. */
+.wc-hero__media {
+  position: relative;
+  overflow: hidden;
+  height: clamp(260px, 34vw, 600px);
+  margin-top: clamp(8px, 2vw, 24px);
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 74%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 74%, transparent 100%);
+}
+
+.wc-hero__video {
   position: absolute;
-  inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 100%
-  );
-  animation: skel-shimmer 1.6s infinite;
-}
-
-/* ── Hero skeleton: black base with animated purple waves ───────── */
-.skel-hero {
-  background-color: #000;            /* black base */
-  border-radius: 0;
+  top: 0;
+  left: 50%;
+  width: max(100%, 900px);
   height: 100%;
-  min-height: 100%;
-  overflow: hidden;                  /* clips the waves to the hero box */
-  animation: none;                   /* drop the gray skel-pulse */
-  transition: opacity 0.7s ease;     /* fade out when the video is ready */
-  will-change: opacity;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: 50% 76%;
+  background: #000;
 }
 
-/* Kill the shimmer .skel adds, and repurpose both pseudo-elements as waves */
-.skel-hero::before,
-.skel-hero::after {
-  content: "";
+.wc-proof {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 32px 40px;
+  padding: 40px 0 56px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wc-proof__title {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--wc-night-ink);
+}
+
+.wc-proof__text {
+  margin-top: 10px !important;
+  max-width: 300px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--wc-night-body);
+}
+
+/* ── Sections ─────────────────────────────────────────────────────── */
+.wc-section { padding: clamp(72px, 10vw, 136px) 0; }
+.wc-section--tight-bottom { padding-bottom: clamp(56px, 8vw, 96px); }
+.wc-light { background: var(--wc-page); color: var(--wc-ink); }
+
+.wc-section__head { max-width: 760px; }
+
+.wc-section__title {
+  font-size: clamp(34px, 4.4vw, 60px);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.wc-section__lede {
+  margin-top: 24px !important;
+  max-width: 600px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.5;
+  color: var(--wc-muted);
+  text-wrap: pretty;
+}
+.wc-night .wc-section__lede { color: var(--wc-night-body); }
+
+/* ── Services ─────────────────────────────────────────────────────── */
+.wc-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+  gap: 24px;
+  margin-top: 72px;
+}
+
+.wc-tile {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 440px;
+  padding: 44px;
+  border-radius: var(--wc-radius-lg);
+  background: var(--wc-tile);
+  color: var(--wc-ink);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.wc-tile:hover { background: var(--wc-tile-hover); color: var(--wc-ink); }
+.wc-tile > .wc-icon, .wc-tile__body { position: relative; }
+
+.wc-tile__watermark {
   position: absolute;
-  top: -40%;
-  left: -50%;
-  right: -50%;
-  bottom: auto;
-  height: 140%;
+  right: -28px;
+  bottom: -28px;
+  opacity: 0.1;
   pointer-events: none;
-  filter: blur(60px);
-  mix-blend-mode: screen;           /* purple glows read cleanly on black */
 }
 
-/* primary wave — brand #794eef */
-.skel-hero::before {
-  background:
-    radial-gradient(60% 60% at 30% 60%, rgba(121, 78, 239, 0.55),
-      rgba(37, 12, 125, 0.15) 55%, transparent 75%),
-    radial-gradient(50% 50% at 80% 40%, rgba(121, 78, 239, 0.45), transparent 70%);
-  animation: wave-drift-a 9s ease-in-out infinite;
+.wc-tile__body { display: flex; flex-direction: column; align-items: flex-start; max-width: 440px; }
+
+.wc-tile__title {
+  margin-bottom: 14px;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
-/* secondary wave — #3e11ba, moving the opposite way */
-.skel-hero::after {
-  top: -30%;
-  background:
-    radial-gradient(70% 70% at 70% 70%, rgba(62, 17, 186, 0.55),
-      rgba(121, 78, 239, 0.15) 50%, transparent 72%);
-  animation: wave-drift-b 12s ease-in-out infinite;
+.wc-tile__text {
+  margin-bottom: 28px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--wc-body);
 }
 
-@keyframes wave-drift-a {
-  0%, 100% { transform: translate3d(-10%, 0, 0) scale(1); }
-  50%      { transform: translate3d(12%, -6%, 0) scale(1.15); }
-}
-@keyframes wave-drift-b {
-  0%, 100% { transform: translate3d(10%, 0, 0) scale(1.1); }
-  50%      { transform: translate3d(-12%, 6%, 0) scale(1); }
-}
+.wc-tile .wc-link { font-size: 16px; }
 
-/* ── skeleton ⇆ video cross-fade ────────────────────────────────── */
-.hero-video {
-  opacity: 0;                       /* hidden until it can play */
-  transition: opacity 0.7s ease;    /* fade IN */
-  will-change: opacity;
-}
-.hero-video.is-visible { opacity: 1; }
+/* ── Approach ─────────────────────────────────────────────────────── */
+.wc-approach { display: flex; flex-wrap: wrap; gap: 56px 96px; }
+.wc-approach__head { flex: 1 1 360px; max-width: 460px; }
+.wc-approach__head .wc-section__lede { font-size: 19px; }
 
-/* skeleton (keeps .skel-hero's transition) fades OUT on the same 0.7s */
-.skel-hero.is-hidden { opacity: 0; }
-
-/* Sizing so the gray card mimics the real ExpertiseCard layout */
-.sk-title      { height: 1.5rem;  width: 60%; margin-bottom: 1rem; }
-.sk-icon       { width: 96px;     height: 96px; border-radius: 50%; flex-shrink: 0; }
-.sk-line       { height: 0.75rem; width: 100%; }
-.sk-line-short { height: 0.75rem; width: 55%; }
-.sk-btn        { height: 2.5rem;  width: 120px; }
-
-/* ── Section-level skeleton shapes ────────────────────────────────── */
-
-/* ProfessionalServices: big heading + paragraph block */
-.sk-h1         { height: 2.5rem;  width: 80%; margin-bottom: 1.5rem; }
-.sk-para       { height: 0.75rem; width: 100%; margin-bottom: 0.5rem; }
-.sk-para-short { height: 0.75rem; width: 65%; }
-
-/* WhyChooseUs: bullet + text rows */
-.sk-list-row  { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-.sk-bullet    { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-.sk-list-line { height: 0.75rem; flex: 1; }
-
-/* OurApproach: icon circles + arrow squares */
-.sk-approach-circle { width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; }
-.sk-approach-arrow  { width: 20px; height: 20px; border-radius: 4px;  flex-shrink: 0; }
-
-/* NeedHelp: image block + heading + CTA */
-.sk-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 6px;
-}
-.sk-h3      { height: 1.75rem; width: 70%; margin-bottom: 1rem; }
-.sk-cta-btn { height: 2.75rem; width: 180px; margin: 0 auto; }
-
-/* ── Skeleton → content transition ─────────────────────────────── */
-@keyframes lazy-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.wc-approach__list {
+  flex: 2 1 520px;
+  min-width: 0;
+  border-bottom: 1px solid var(--wc-night-line);
 }
 
-.lazy-content {
-  animation: lazy-fade-in 0.45s ease forwards;
+.wc-approach__item {
+  display: flex;
+  gap: 28px;
+  padding: 36px 0;
+  border-top: 1px solid var(--wc-night-line);
+}
+.wc-approach__item > .wc-icon { margin-top: 2px; color: var(--wc-night-ink); }
+
+.wc-approach__title {
+  margin-bottom: 10px !important;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--wc-night-ink);
 }
 
-/* Respect users who prefer no motion */
+.wc-approach__text {
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--wc-night-body);
+}
+
+/* ── Industries ───────────────────────────────────────────────────── */
+.wc-industries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 64px !important;
+}
+
+.wc-industry {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 208px;
+  padding: 28px;
+  border: 1px solid var(--wc-line);
+  border-radius: var(--wc-radius-md);
+  background: var(--wc-card);
+}
+
+.wc-industry__title {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ── Contact panel ────────────────────────────────────────────────── */
+.wc-contact { padding-bottom: clamp(72px, 10vw, 136px); }
+
+.wc-contact__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+  padding: clamp(48px, 8vw, 112px) clamp(28px, 6vw, 96px);
+}
+
+.wc-contact__art {
+  position: absolute;
+  top: 0;
+  right: -80px;
+  width: min(820px, 62%);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 45%);
+  mask-image: linear-gradient(to right, transparent 0, #000 45%);
+  pointer-events: none;
+}
+
+.wc-contact__body { position: relative; max-width: 640px; }
+
+.wc-contact__title {
+  font-size: clamp(34px, 4.8vw, 68px);
+  line-height: 1.03;
+  font-weight: 600;
+  letter-spacing: -0.038em;
+  color: var(--wc-night-ink);
+  text-wrap: balance;
+}
+
+.wc-contact__text {
+  margin: 24px 0 40px !important;
+  max-width: 460px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--wc-night-body);
+}
+
+@media (max-width: 760px) {
+  .wc-contact__art { display: none; }
+  .wc-tile { min-height: 380px; padding: 32px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .skel, .skel::after, .lazy-content { animation: none; }
-  .skel-hero::before, .skel-hero::after { animation: none; }
-  .hero-video, .skel-hero { transition: none; }
+  .wc-tile { transition: none; }
 }

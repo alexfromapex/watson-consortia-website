@@ -6,6 +6,127 @@ html, body {
   padding: 0;
 }
 
+/* ── Design tokens (redesign) ─────────────────────────────────────────
+ * Light surfaces flip with Bootstrap's data-bs-theme; "night" surfaces
+ * (hero, approach, contact panel, nav) are dark in both modes.
+ * Accent = brand purple #3e11ba; on dark it lifts to a lighter tint.
+ */
+:root {
+  --wc-accent: #3e11ba;
+  --wc-accent-night: #8f75d7;
+
+  --wc-page: #fbfbfc;
+  --wc-tile: #f1f2f4;
+  --wc-tile-hover: #e9ebee;
+  --wc-card: #ffffff;
+  --wc-line: #e3e5e9;
+  --wc-line-strong: #c9cdd5;
+  --wc-ink: #111216;
+  --wc-body: #4a4e57;
+  --wc-muted: #5b5f68;
+  --wc-accent-text: var(--wc-accent);
+  --wc-node: var(--wc-accent);
+
+  --wc-night: #0b0c10;
+  --wc-night-ink: #f5f5f7;
+  --wc-night-body: #a9aeb9;
+  --wc-night-soft: #c7cbd4;
+  --wc-night-line: rgba(255, 255, 255, 0.12);
+
+  --wc-radius-lg: 28px;
+  --wc-radius-md: 24px;
+  --wc-gutter: clamp(20px, 4vw, 56px);
+  --wc-max: 1280px;
+  --wc-nav-h: 76px;
+}
+
+[data-bs-theme="dark"] {
+  --wc-page: #000000;
+  --wc-tile: #15161b;
+  --wc-tile-hover: #1c1d23;
+  --wc-card: #0f1014;
+  --wc-line: #24262c;
+  --wc-line-strong: #3a3d45;
+  --wc-ink: #f5f5f7;
+  --wc-body: #c1c5ce;
+  --wc-muted: #a9aeb9;
+  --wc-accent-text: #9f88e6;
+  --wc-node: #9f88e6;
+}
+
+/* Night surfaces always use the lifted accent */
+.wc-night {
+  --wc-node: var(--wc-accent-night);
+  --wc-accent-text: var(--wc-accent-night);
+  background-color: var(--wc-night);
+  color: var(--wc-night-ink);
+}
+
+/* Icon family: accent node + solid dots */
+.wc-icon { display: block; flex: none; }
+.wc-icon__node { fill: var(--wc-node); stroke: none; }
+.wc-icon__dot { fill: currentColor; stroke: none; }
+
+/* Shared container */
+.wc-container {
+  max-width: var(--wc-max);
+  margin: 0 auto;
+  padding-left: var(--wc-gutter);
+  padding-right: var(--wc-gutter);
+}
+
+/* Pill buttons on top of Bootstrap's .btn-primary
+ * (.btn.wc-btn so these win regardless of stylesheet order) */
+.btn.wc-btn {
+  --bs-btn-padding-x: 1.875rem;
+  --bs-btn-font-weight: 500;
+  --bs-btn-border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+.btn.wc-btn--sm {
+  --bs-btn-padding-x: 1.375rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+}
+
+/* Text link with sliding arrow */
+.wc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 500;
+  color: var(--wc-accent-text);
+  text-decoration: none;
+}
+.wc-link .wc-icon { transition: transform 0.25s ease; }
+.wc-link:hover .wc-icon,
+a:hover .wc-link .wc-icon { transform: translateX(4px); }
+
+/* Secondary link on dark surfaces */
+.wc-link.wc-link--light { color: var(--wc-night-ink); font-size: 1.0625rem; }
+.wc-link.wc-link--light:hover { color: #ffffff; }
+
+.wc-eyebrow {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wc-accent-text);
+}
+
+:focus-visible { outline: 2px solid var(--wc-accent-text); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-link .wc-icon { transition: none; }
+}
+
 /* Custom spacing */
 
 .big-margins {

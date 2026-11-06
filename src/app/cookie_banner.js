@@ -1,31 +1,46 @@
 "use client";
 import "./cookie_banner.css";
-import {useEffect, useState} from "react";
-import {getCookie, setCookie} from "./utils";
-
+import { useEffect, useState } from "react";
+import { getCookie, setCookie } from "./utils";
+import Icon from "./components/icons";
 
 const CookieBanner = () => {
-    let cookieBanner = getCookie("wc_cookie_banner");
-    useEffect(() => {
-        if (cookieBanner) {
-            setShowBanner(false);
-        }
-    }, [cookieBanner])
-    const [showBanner, setShowBanner] = useState(true);
+  // Hidden until mounted, so returning visitors never see it flash.
+  const [showBanner, setShowBanner] = useState(false);
 
-    const bannerClose = () => {
-        setShowBanner(false);
-        setCookie("wc_cookie_banner", "true", 365);
+  useEffect(() => {
+    if (!getCookie("wc_cookie_banner")) {
+      setShowBanner(true);
     }
-    return (
-        <div id="cb-cookie-banner" className={`alert text-center mb-0 fixed-bottom ${showBanner ? '' : 'd-none'}`} role="alert">
-        &#x1F36A; This website uses cookies to ensure you get the best experience on our website.&nbsp;
-        <a href="https://www.cookiesandyou.com/" target="blank">Learn more</a>
-        <button type="button" className="btn btn-primary btn-sm ms-3" onClick={() => bannerClose()}>
-            I Got It
+  }, []);
+
+  const bannerClose = () => {
+    setShowBanner(false);
+    setCookie("wc_cookie_banner", "true", 365);
+  };
+
+  if (!showBanner) return null;
+
+  return (
+    <div id="cb-cookie-banner" className="wc-cookie" role="region" aria-label="Cookie notice">
+      <div className="wc-cookie__row">
+        <span className="wc-cookie__icon">
+          <Icon name="cookie" size={26} />
+        </span>
+        <p className="wc-cookie__text">
+          This website uses cookies to ensure you get the best experience on our website.
+        </p>
+      </div>
+      <div className="wc-cookie__actions">
+        <button type="button" className="btn wc-cookie__btn" onClick={bannerClose}>
+          I got it
         </button>
-        </div>
-    );
+        <a className="wc-cookie__link" href="https://www.cookiesandyou.com/" target="_blank" rel="noopener noreferrer">
+          Learn more
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default CookieBanner;
