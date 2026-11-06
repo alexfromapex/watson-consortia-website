@@ -228,7 +228,7 @@
 /* ── Industries ───────────────────────────────────────────────────── */
 .wc-industries {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 64px !important;
 }
@@ -294,6 +294,27 @@
   line-height: 1.5;
   color: var(--wc-night-body);
 }
+
+@media (min-width: 1024px) {
+  .wc-industries { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .wc-industries { gap: 12px; }
+  .wc-industry { min-height: 148px; gap: 32px; padding: 20px; border-radius: 20px; }
+  .wc-industry__title { font-size: 17px; }
+}
+
+/* Quiet assurance line under the contact button */
+.wc-contact__assurance {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px !important;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--wc-night-body);
+}
+.wc-contact__assurance .wc-icon { color: var(--wc-night-soft); }
 
 @media (max-width: 760px) {
   .wc-contact__art { display: none; }

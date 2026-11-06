@@ -75,6 +75,27 @@ const PATHS = {
       <circle className="wc-icon__node" cx="17.7" cy="8.4" r="1" />
     </>
   ),
+  "energy": (
+    <>
+      <path d="M5.5 9h13l2.5 7.5H3z" />
+      <path d="M12 9v7.5M4.2 12.75h15.6M12 16.5v4M8.5 20.5h7" />
+      <circle className="wc-icon__node" cx="18.5" cy="4.2" r="1.6" />
+    </>
+  ),
+  "manufacturing": (
+    <>
+      <path d="M3.5 20.5V11.5l5 3v-3l5 3V5.5h5v15z" />
+      <path d="M2.5 20.5h19M6.5 17.5h1.5M10.5 17.5h1.5" />
+      <circle className="wc-icon__node" cx="16" cy="9" r="1.3" />
+    </>
+  ),
+  "biometrics": (
+    <>
+      <path d="M3.5 8V6.5a3 3 0 0 1 3-3H8M16 3.5h1.5a3 3 0 0 1 3 3V8M20.5 16v1.5a3 3 0 0 1-3 3H16M8 20.5H6.5a3 3 0 0 1-3-3V16" />
+      <path d="M10 9.5v1.5M14 9.5v1.5M9.6 14.2a3.4 3.4 0 0 0 4.8 0" />
+      <circle className="wc-icon__node" cx="12" cy="3.5" r="1.3" />
+    </>
+  ),
   "pipeline": (
     <>
       <path d="M6.8 11L10.5 7.3M6.8 13L10.5 16.7M13.5 7.3L17.2 11M13.5 16.7L17.2 13" />

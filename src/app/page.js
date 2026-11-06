@@ -71,7 +71,10 @@ const APPROACH = [
 const INDUSTRIES = [
   { icon: "healthcare", title: "Healthcare" },
   { icon: "life-sciences", title: "Life Sciences" },
+  { icon: "biometrics", title: "Biometrics" },
   { icon: "finance", title: "Finance" },
+  { icon: "energy", title: "Energy" },
+  { icon: "manufacturing", title: "Manufacturing" },
   { icon: "construction", title: "Construction" },
   { icon: "visual-production", title: "3D Services" },
 ];
@@ -207,6 +210,10 @@ export default function Home() {
                 <Link href="/contact-us" className="btn btn-primary wc-btn">
                   Start a conversation
                 </Link>
+                <p className="wc-contact__assurance">
+                  <Icon name="shield" size={18} stroke={1.5} />
+                  We carry Errors &amp; Omissions insurance.
+                </p>
               </div>
             </div>
           </div>
